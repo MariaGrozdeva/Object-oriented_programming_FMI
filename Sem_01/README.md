@@ -11,7 +11,7 @@ struct Person
 	char firstName[32];
 	char lastName[32];
 	unsigned int age;
-	char ucn[10]; // unified civilian number
+	char ucn[11]; // unified civilian number
 };
 ```
 
@@ -33,7 +33,7 @@ strcpy(p3.ucn, "9612120305");
 ```c++
 void printByTwoNames(const Person& p)
 {
-	cout << p.firstName << ' ' << p.lastName;
+	std::cout << p.firstName << ' ' << p.lastName;
 }
 ```
 Можем и да я променяме.
@@ -139,7 +139,7 @@ struct Test
 int main()
 {
 	Test t;
-	cout << sizeof(t); // 16
+	std::cout << sizeof(t); // 16
 }
 ```
 ```c++
@@ -154,7 +154,7 @@ struct Test
 int main()
 {
 	Test t;
-	cout << sizeof(t); // 12
+	std::cout << sizeof(t); // 12
 }
 ```
 Извод: Само чрез пренареждане на елементите на структурата можем да "пестим" памет (В горния пример "спестихме" 4 байта (25%) памет.  
