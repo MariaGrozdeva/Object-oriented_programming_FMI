@@ -40,7 +40,7 @@ void printByTwoNames(const Person& p)
 ```c++
 void readPerson(Person& p)
 {
-	cin >> p.firstName >> p.lastName >> p.age >> p.ucn;
+	std::cin >> p.firstName >> p.lastName >> p.age >> p.ucn;
 }
 ```
 Можем да я подаваме по копие.
