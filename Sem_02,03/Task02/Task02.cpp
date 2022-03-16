@@ -27,7 +27,7 @@ struct StudentsCollection
 	Student* data;
 };
 
-int getStudentsCount(const char* fileName, std::ifstream& file)
+int getStudentsCount(std::ifstream& file)
 {
 	char buff[MAX_SIZE];
 	size_t studentsCount = 0;
@@ -81,7 +81,7 @@ int fillStudentsCollection(const char* fileName, StudentsCollection& collection)
 		return -1;
 	}
 
-	int studentsCount = getStudentsCount(fileName, file);
+	int studentsCount = getStudentsCount(file);
 	collection.data = new Student[studentsCount];
 
 	char buff[MAX_SIZE];
