@@ -138,3 +138,37 @@ int main()
 
 :bangbang: **Разлика между структура и клас**  
 По подразбиране всички член данни и методи **на структурата са public-елементи**, а тези **на класа - private-елементи**.  
+
+## Accessors and mutators (getters and setters)
+**Get-ъри** - функции, които използваме за **достъп** до "скрити" данни (попадащи в обхвата на модификатора private (protected)).  
+**Set-ъри** - функции, които използваме за **промяна** на "скрити" данни. В тях задължително правим валидация на подадените данни (ако такава е необходима)!  
+
+*Пример:*  
+```c++
+struct Student
+{
+private:
+    size_t grade;
+    size_t age;
+
+public:
+    size_t getGrade() const
+    {
+        return grade;
+    }
+    size_t getAge() const
+    {
+        return age;
+    }
+
+    void setGrade(size_t grade)
+    {
+        assert(grade <= 6);
+        this->grade = grade;
+    }
+    void setAge(size_t age)
+    {
+        this->age = age;
+    }
+};
+```
