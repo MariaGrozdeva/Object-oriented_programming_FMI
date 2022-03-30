@@ -84,7 +84,7 @@ bool Time::isPartyTime() const
 	Time startingHour(23, 0, 0);
 	Time endingHour(6, 0, 0);
 
-	return compare(startingHour) >= 0 || compare(endingHour);
+	return compare(startingHour) >= 0 || compare(endingHour) <= 0;
 }
 
 void Time::print(bool is12hoursClock) const
