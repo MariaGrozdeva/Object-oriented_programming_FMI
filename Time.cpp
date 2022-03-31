@@ -74,14 +74,14 @@ int Time::compare()const
 	else
 		return 0;
 }
-/*Time Time::getToMidnight()const
+Time Time::getToMidnight()const
 {
-//idk how to do it
-	Time p(23-hours,59-minutes,59-seconds);
+
+	Time p(23-hours,59-minutes,60-seconds);
 	
 
 	return p;
-}*/
+}
 
 bool Time::isDinnerTime()const
 {
@@ -139,5 +139,5 @@ int main()
 	Time t(20, 20, 59);
 
 	t.print(0);
-	//t.getToMidnight();
+
 }
