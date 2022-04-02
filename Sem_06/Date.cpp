@@ -95,6 +95,11 @@ bool Date::isLeapYear() const {
 bool Date::makeDateValid() {
 	bool isValid = true;
 
+	if (year < 1) {
+		year = 1;
+		isValid = false;
+	}
+	
 	// Validate days
 	if (day < 1 || highestValidDayNumberInAMonth(month) < day) {
 		day = 1;			// тук малко радикално го слагам да е първи ден при всички положения. Сигурно по-културно може да се измисли.
