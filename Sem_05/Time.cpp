@@ -102,7 +102,7 @@ void Time::print(bool is12hoursClock) const
 	std::cout << seconds;
 
 	if (is12hoursClock)
-		std::cout << (hours > 12) ? "PM" : "AM";
+		(hours > 12) ? (std::cout << "PM") : (std::cout << "AM");
 	std::cout << std::endl;
 }
 
