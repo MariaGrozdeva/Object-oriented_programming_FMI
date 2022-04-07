@@ -75,7 +75,7 @@ int main()
 
 ![alt_text](https://i.ibb.co/DKJcjtk/shallow-Copy.png)
 
-**Правилното поведение** на копиращия конструктор е следното:
+**Правилното поведение** на копиращия конструктор е следното: :heavy_check_mark:
 
 ![alt_text](https://i.ibb.co/LCcJDLx/right-Copy.png)
 
