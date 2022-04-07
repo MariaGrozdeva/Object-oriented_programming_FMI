@@ -14,6 +14,7 @@ private:
 public:
 	Person(const char* name, size_t age);
 
+	// Big 4
 	Person();
 	Person(const Person& other);
 	Person& operator=(const Person& other);
