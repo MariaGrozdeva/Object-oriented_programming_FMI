@@ -2,11 +2,7 @@
 
 Date::Date(size_t day, size_t month, size_t year)
 {
-	setYear(year);
-	setMonth(month);
-	setDay(day);
-
-	isChanged = true;
+	update(day, month, year);
 }
 
 size_t Date::getYear() const
@@ -25,6 +21,7 @@ size_t Date::getDay() const
 void Date::setYear(size_t year)
 {
 	this->year = year;
+
 	if (isLeapYear())
 		maxDays[1] = 29; // February
 	else
@@ -36,6 +33,7 @@ void Date::setMonth(size_t month)
 {
 	if (month > 12)
 		month = 1;
+
 	this->month = month;
 
 	isChanged = true;
@@ -44,6 +42,9 @@ void Date::setDay(size_t day)
 {
 	if (day > maxDays[month - 1])
 		day = 1;
+	if (year == 1916 && month == 4 && day < 14)
+		day = 14;
+
 	this->day = day;
 
 	isChanged = true;
@@ -86,6 +87,15 @@ size_t Date::getDayOfWeek() const
 	isChanged = false;
 	
 	return this->dayOfWeek;
+}
+
+void Date::update(size_t day, size_t month, size_t year)
+{
+	setYear(year);
+	setMonth(month);
+	setDay(day);
+
+	isChanged = true;
 }
 
 void Date::print() const

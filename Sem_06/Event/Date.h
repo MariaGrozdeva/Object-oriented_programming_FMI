@@ -17,6 +17,10 @@ private:
 
 	bool isLeapYear() const;
 
+	void setYear(size_t year);
+	void setMonth(size_t month);
+	void setDay(size_t day);
+
 public:
 	Date(size_t day, size_t month, size_t year);
 
@@ -24,14 +28,12 @@ public:
 	size_t getMonth() const;
 	size_t getDay() const;
 
-	void setYear(size_t year);
-	void setMonth(size_t month);
-	void setDay(size_t day);
-
 	bool areEqual(const Date& other) const;
 
 	void goNextDay();
 	size_t getDayOfWeek() const;
+
+	void update(size_t day, size_t month, size_t year);
 
 	void print() const;
 };
