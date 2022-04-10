@@ -1,37 +1,4 @@
-#include <iostream>
-
-class Time
-{
-private:
-	size_t hours;
-	size_t minutes;
-	size_t seconds;
-
-	size_t convertToSeconds() const;
-	Time getDiff(const Time& other) const;
-
-public:
-	Time();
-	Time(size_t seconds);
-	Time(size_t hours, size_t minutes, size_t seconds);
-
-	int compare(const Time& other) const;
-
-	Time getToMidnight() const;;
-
-	bool isDinnerTime() const;
-	bool isPartyTime() const;
-
-	void print(bool is12hoursClock) const;
-
-	void setHours(size_t hours);
-	void setMinutes(size_t minutes);
-	void setSeconds(size_t seconds);
-
-	size_t getHours() const;
-	size_t getMinutes() const;
-	size_t getSeconds() const;
-};
+#include "Time.h"
 
 Time::Time() : Time(0, 0, 0)
 {}
@@ -155,11 +122,4 @@ Time Time::getDiff(const Time& other) const
 		diff = otherSeconds - thisSeconds;
 
 	return Time(diff);
-}
-
-int main()
-{
-	Time times[4] = { Time(22, 22, 22), Time(23, 05, 00), Time(), Time(5, 30, 59) };
-	for (size_t i = 0; i < 4; i++)
-		times[i].print(false);
 }
