@@ -8,7 +8,6 @@ private:
 	double im;
 
 public:
-	ComplexNumber();
 	ComplexNumber(double real = 0, double im = 0);
 
 	ComplexNumber getComplexConjugate() const;
