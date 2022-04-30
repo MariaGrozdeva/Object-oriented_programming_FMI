@@ -28,7 +28,7 @@ StringPool& StringPool::operator*=(const MyString& word)
 	resize(count + 1);
 
 	int currentStringPosition = count - 2;
-	while (currentStringPosition > 0 && *data[currentStringPosition - 1] > word)
+	while (currentStringPosition >= 0 && *data[currentStringPosition] > word)
 	{
 		data[currentStringPosition + 1] = data[currentStringPosition];
 		currentStringPosition--;
