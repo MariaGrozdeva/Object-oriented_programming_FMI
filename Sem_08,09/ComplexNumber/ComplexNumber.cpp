@@ -8,9 +8,7 @@ ComplexNumber::ComplexNumber(double real, double im)
 
 ComplexNumber ComplexNumber::getComplexConjugate() const
 {
-	ComplexNumber complexConjugate(*this);
-	complexConjugate.im *= (-1);
-
+	ComplexNumber complexConjugate(real, (-1)*im);
 	return complexConjugate;
 }
 
