@@ -18,6 +18,8 @@ public:
 	ComplexNumber& operator*=(const ComplexNumber&);
 	ComplexNumber& operator/=(const ComplexNumber&);
 
+	friend bool operator==(const ComplexNumber&, const ComplexNumber&);
+
 	// These should be friend functions because they are binary functions and their first arguments are NOT objects of our class ComplexNumber.
 	friend std::ostream& operator<<(std::ostream&, const ComplexNumber&);
 	friend std::istream& operator>>(std::istream&, ComplexNumber&);
@@ -27,5 +29,3 @@ ComplexNumber operator+(const ComplexNumber&, const ComplexNumber&);
 ComplexNumber operator-(const ComplexNumber&, const ComplexNumber&);
 ComplexNumber operator*(const ComplexNumber&, const ComplexNumber&);
 ComplexNumber operator/(const ComplexNumber&, const ComplexNumber&);
-
-bool operator==(const ComplexNumber&, const ComplexNumber&);

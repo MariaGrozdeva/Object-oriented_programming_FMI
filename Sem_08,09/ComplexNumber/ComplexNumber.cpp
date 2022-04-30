@@ -79,7 +79,7 @@ ComplexNumber operator/(const ComplexNumber& lhs, const ComplexNumber& rhs)
 
 bool operator==(const ComplexNumber& lhs, const ComplexNumber& rhs)
 {
-	return lhs - rhs == 0;
+	return lhs.real == rhs.real && lhs.im == rhs.im;
 }
 
 std::ostream& operator<<(std::ostream& os, const ComplexNumber& cN)
