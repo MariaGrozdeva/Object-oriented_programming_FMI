@@ -1,7 +1,5 @@
 #include "ComplexNumber.h"
 
-ComplexNumber::ComplexNumber() : ComplexNumber(0, 0)
-{}
 ComplexNumber::ComplexNumber(double real, double im)
 {
 	this->real = real;
