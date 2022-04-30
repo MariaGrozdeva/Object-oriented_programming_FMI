@@ -26,14 +26,14 @@ StringPool& StringPool::operator*=(const MyString& word)
 		return *this;
 
 	resize(count + 1);
-	data[count - 1] = new MyString(word);
-	size_t currentStringPosition = count - 1;
 
-	while (currentStringPosition > 0 && *data[currentStringPosition] < *data[currentStringPosition - 1])
+	int currentStringPosition = count - 2;
+	while (currentStringPosition > 0 && *data[currentStringPosition - 1] > word)
 	{
-		std::swap(data[currentStringPosition], data[currentStringPosition - 1]);
+		data[currentStringPosition + 1] = data[currentStringPosition];
 		currentStringPosition--;
 	}
+	data[currentStringPosition + 1] = new MyString(word);
 
 	return *this;
 }
@@ -47,6 +47,7 @@ StringPool& StringPool::operator/=(const MyString& word)
 
 	for (size_t i = indexOfWord; i < count - 1; i++)
 		data[i] = data[i + 1];
+
 	resize(count - 1);
 
 	return *this;
