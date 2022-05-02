@@ -1,6 +1,6 @@
-#include "StringPool.h"
 #include <algorithm>
 #include "MyString.h"
+#include "StringPool.h"
 
 // Not algorithmically best. Used for educational purposes.
 
