@@ -1,3 +1,4 @@
+#include <iostream>
 #include "MyString.h"
 
 void MyString::concat(const MyString& other)
