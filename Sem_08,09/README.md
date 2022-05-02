@@ -145,7 +145,7 @@ public:
 
 std::ostream& operator<<(std::ostream& os, const ComplexNumber& complex) 
 {
-	return os << complex.real << ' ' << complex.im << 'i';
+	return os << complex.real << " + i" << complex.im <<;
 }
 ```
 
