@@ -81,7 +81,7 @@ int main()
 ```c++
 bool operator==(const ComplexNumber& lhs, const ComplexNumber& rhs)
 {
-	return lhs.getReal() == rhs.getReal() && lhs.getImaginary() == rhs.getImaginary()
+	return lhs.getReal() == rhs.getReal() && lhs.getImaginary() == rhs.getImaginary();
 }
 ```
 
