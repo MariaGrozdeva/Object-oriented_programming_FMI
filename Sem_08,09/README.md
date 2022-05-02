@@ -113,7 +113,7 @@ c1 == c2 <=> operator==(c1, c2)
 ```c++
 std::ostream& operator<<(std::ostream& os, const ComplexNumber& complex) 
 {
-	return os << complex.getReal() << ' ' << complex.getImaginary() << 'i';
+	return os << complex.getReal() << " + i" << complex.getImaginary();
 }
 ```
 
