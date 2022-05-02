@@ -158,8 +158,8 @@ std::ostream& operator<<(std::ostream& os, const ComplexNumber& complex)
 class ComplexNumber
 {
 private:
-	double real;
-	double im;
+		double real;
+		double im;
 
 public:
 	friend class ComplexVector;
