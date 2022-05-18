@@ -1,6 +1,5 @@
 #pragma once
 #pragma warning (disable : 4996)
-
 #include "Person.h"
 
 class Teacher : public Person
