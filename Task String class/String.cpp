@@ -69,7 +69,7 @@ String& String::operator+=(const char* other_str) {
 }
 String& String::operator+=(const String& other) {
 	if (capacity < size + other.size)
-		resize(other.size - capacity);
+		resize(size + other.size - capacity);
 	
 	strcpy(str + size, other.str);
 	size += other.size;
