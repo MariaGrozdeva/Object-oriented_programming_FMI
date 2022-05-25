@@ -146,7 +146,7 @@ class ThirdLevel : public SecondLevel
 public:
 	virtual void h() const override
 	{
-		std::cout << "ThirdLevel::f()" << std::endl;
+		std::cout << "ThirdLevel::h()" << std::endl;
 	}
 };
 
