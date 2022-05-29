@@ -34,7 +34,7 @@ std::ostream& operator<<(std::ostream& os, const MyString& str)
 std::istream& operator>>(std::istream& is, MyString& str)
 {
 	char buff[1024];
-	is >> buff;
+	is >> std::setw(1024) >> buff;
 	size_t len = strlen(buff);
 	
 	delete[] str.str;
