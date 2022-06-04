@@ -3,7 +3,7 @@
 #include "Dog.h"
 #include "Mouse.h"
 
-Animal* AnimalFactory::createAnimal(Animal::AnimalType animalType)
+Animal* AnimalFactory::createAnimal(Animal::AnimalType animalType) const
 {
 	switch (animalType)
 	{
