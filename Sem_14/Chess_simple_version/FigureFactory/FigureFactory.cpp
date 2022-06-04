@@ -7,7 +7,7 @@
 #include "../Figures/Rook/Rook.h"
 #include "../Figures/Pawn/Pawn.h"
 
-Figure* FigureFactory::createFigure(bool isWhite, Figure::FigureType type)
+Figure* FigureFactory::createFigure(bool isWhite, Figure::FigureType type) const
 {
 	switch (type)
 	{
