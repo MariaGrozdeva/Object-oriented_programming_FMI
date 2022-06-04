@@ -4,5 +4,5 @@
 class AnimalFactory
 {
 public:
-	virtual Animal* createAnimal(Animal::AnimalType animalType);
+	virtual Animal* createAnimal(Animal::AnimalType animalType) const;
 };
