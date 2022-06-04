@@ -4,5 +4,5 @@
 class FigureFactory
 {
 public:
-    Figure* createFigure(bool isWhite, Figure::FigureType type);
+    Figure* createFigure(bool isWhite, Figure::FigureType type) const;
 };
