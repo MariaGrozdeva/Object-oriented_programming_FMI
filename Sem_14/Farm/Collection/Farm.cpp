@@ -18,7 +18,7 @@ bool Farm::addAnimal(Animal::AnimalType animalType)
 		animals[count++] = newAnimal;
 	}
 
-	return newAnimal != nullptr;
+	return newAnimal;
 }
 
 void Farm::allSayHello() const
