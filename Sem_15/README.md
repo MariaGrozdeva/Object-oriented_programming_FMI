@@ -14,7 +14,7 @@
  - Унарна операция, която има друг израз от множества;
  - Бинарна операция, която има ляв израз от множества и десен израз от множества.
 
-![alt_text](https://i.ibb.co/NSJrGWQ/Set-Expression.png)
+![alt_text](https://i.ibb.co/VQj8Yj7/Set-Expression.png)
 
 ---
 
@@ -26,7 +26,7 @@
  - В унарната операция участват точно тези променливи, които участват в подизраза;
  - В бинарната операция участват променливите от левия израз и променливите от десния израз (тяхното обединение).
 
-![alt_text](https://i.ibb.co/86T1PZj/Variables-In-The-Expr.png)
+![alt_text](https://i.ibb.co/B4hG7ht/Variables-In-The-Expr.png)
 
 ---
 
