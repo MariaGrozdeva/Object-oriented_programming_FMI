@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 struct Point
 {
@@ -8,10 +9,6 @@ struct Point
 void readPoint(Point& p)
 {
 	std::cin >> p.x >> p.y;
-}
-void printPoint(const Point& p)
-{
-	std::cout << "x: " << p.x << ", y: " << p.y;
 }
 
 struct Triangle
@@ -26,15 +23,6 @@ void readTriangle(Triangle& t)
 	readPoint(t.p2);
 	readPoint(t.p3);
 }
-void printTriangle(const Triangle& t)
-{
-	printPoint(t.p1);
-	std::cout << std::endl;
-	printPoint(t.p2);
-	std::cout << std::endl;
-	printPoint(t.p3);
-	std::cout << std::endl;
-}
 
 double getDist(const Point& p1, const Point& p2)
 {
@@ -43,6 +31,7 @@ double getDist(const Point& p1, const Point& p2)
 
 	return sqrt(dx * dx + dy * dy);
 }
+
 double getArea(const Triangle& t)
 {
 	double sideA = getDist(t.p1, t.p2);
@@ -53,14 +42,33 @@ double getArea(const Triangle& t)
 	return sqrt(halfPer * (halfPer - sideA) * (halfPer - sideB) * (halfPer - sideC));
 }
 
-double* getAreas(const Triangle* arr, unsigned int n)
+double* getAreas(const Triangle* arr, size_t size)
 {
-	double* areas = new double[n];
-
-	for (size_t i = 0; i < n; i++)
+	double* areas = new double[size];
+	for (size_t i = 0; i < size; i++)
+	{
 		areas[i] = getArea(arr[i]);
-
+	}
 	return areas;
+}
+
+void sortAreas(double* areas, size_t size)
+{
+	for (size_t i = 0; i < size - 1; i++)
+	{
+		size_t minIndex = i;
+		for (size_t j = minIndex + 1; j < size; j++)
+		{
+			if (areas[j] < areas[minIndex])
+			{
+				minIndex = j;
+			}
+		}
+		if (minIndex != i)
+		{
+			std::swap(areas[minIndex], areas[i]);
+		}
+	}
 }
 
 int main()
@@ -78,8 +86,13 @@ int main()
 	std::cout << std::endl;
 
 	double* areas = getAreas(triangles, n);
+	sortAreas(areas, n);
+
+	std::cout << "Sorted areas:" << std::endl;
 	for (size_t i = 0; i < n; i++)
+	{
 		std::cout << "Area of triangle " << i << ": " << areas[i] << std::endl;
+	}
 
 	delete[] triangles, areas;
 }
