@@ -19,7 +19,7 @@ struct Person
 ```c++
 Person p; // default values are assigned
 
-Person p2 = { "Ivan", "Dimitrov", 25, "9612120305" }; // firstName = Ivan, lastName = Dimitrov, age = 25, ucn = 9612120305
+Person p2 = { "Ivan", "Dimitrov", 25, "9612120305" }; // firstName == Ivan, lastName == Dimitrov, age == 25, ucn == 9612120305
 
 Person p3;
 strcpy(p3.firstName, "Ivan");
