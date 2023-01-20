@@ -54,7 +54,7 @@ Person changeLastName(Person p, const char* newName)
 
 ### Деклариране и дефиниране на динамични инстанции
 ```c++
-Person* p1 = new Person({ "Ivan", "Dimitrov", 25,"9612120305" });
+Person* p1 = new Person({ "Ivan", "Dimitrov", 25, "9612120305" });
 
 Person* p2 = new Person();
 strcpy((*p2).firstName, "Ivan");
