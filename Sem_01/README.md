@@ -135,7 +135,7 @@ struct Person
 	char name[MAX_SIZE];
 };
 
-Person returnPersonByCopy(Person& p)
+Person returnPersonValue(Person& p)
 {
 	return p;
 }
@@ -149,7 +149,7 @@ int main()
 {
 	{
 		Person p = { 55, "Ivan" };
-		Person p2 = returnPersonByCopy(p);
+		Person p2 = returnPersonValue(p);
 		p2.age = 100;
 		std::cout << p.name << ' ' << p.age << ' ' << p2.age << std::endl; // 55 100
 	}
