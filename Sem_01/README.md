@@ -8,6 +8,8 @@
 3. Връщане на резултат от функция - по стойност и по референция.  
 :bangbang: Променливи, инстанции, обекти, създадени вътре в тялото на функцията (и не в динамичната памет), можем да върнем **само по копие**.
 
+---
+
 # Структури
 
 "**C++ struct**, short for C++ Structure, is an **user-defined data type** available in C++".  
@@ -25,8 +27,6 @@ struct Person
 };
 ```
 
----
-
 ### Деклариране и дефиниране на инстанции в стека
 ```c++
 Person p; // default values are assigned
@@ -39,34 +39,6 @@ strcpy(p3.lastName, "Dimitrov");
 p3.age = 25;
 strcpy(p3.ucn, "9612120305");
 ```
-
----
-
-### Подаване на инстанции във функции
-:heavy_exclamation_mark: Ако няма да променяме инстанцията, я подаваме по **константна референция.**
-```c++
-void printByTwoNames(const Person& p)
-{
-	std::cout << p.firstName << ' ' << p.lastName;
-}
-```
-Можем и да я променяме.
-```c++
-void readPerson(Person& p)
-{
-	std::cin >> p.firstName >> p.lastName >> p.age >> p.ucn;
-}
-```
-Можем да я подаваме по копие.
-```c++
-Person changeLastName(Person p, const char* newName)
-{
-	strcpy(p.lastName, newName);
-	return p;
-}
-```
-
----
 
 ### Деклариране и дефиниране на инстанции в динамичната памет
 ```c++
@@ -92,8 +64,6 @@ delete p1;
 delete p2;
 ```
 
----
-
 ### Влагане на инстанции
 ```c++
 struct Person
@@ -116,8 +86,6 @@ int main()
 }
 ```
 
----
-
 ### Масиви от инстанции
 ```c++
 Person arr1[22];
@@ -126,7 +94,31 @@ Person* arr2 = new Person[23];
 delete[] arr2;
 ```
 
----
+### Подаване на инстанции във функции
+:heavy_exclamation_mark: Ако няма да променяме инстанцията, я подаваме по **константна референция.**
+```c++
+void printByTwoNames(const Person& p)
+{
+	std::cout << p.firstName << ' ' << p.lastName;
+}
+```
+Можем и да я променяме.
+```c++
+void readPerson(Person& p)
+{
+	std::cin >> p.firstName >> p.lastName >> p.age >> p.ucn;
+}
+```
+Можем да я подаваме по копие.
+```c++
+Person changeLastName(Person p, const char* newName)
+{
+	strcpy(p.lastName, newName);
+	return p;
+}
+```
+
+### Връщане на инстанции от функции
 
 ```c++
 const size_t MAX_SIZE = 32;
