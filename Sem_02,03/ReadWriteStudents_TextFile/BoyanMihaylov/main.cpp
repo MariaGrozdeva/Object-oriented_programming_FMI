@@ -136,7 +136,8 @@ void updateEmailByFN(StudentsCollection& collection, char newEmail[],char fn[]){
     bool end = false;
     for (int i = 0; i < collection.size && !end; ++i) {
         if(strcmp(collection.data[i].fn, fn) == 0){
-            strcpy(collection.data[i].email, newEmail);
+            size_t len = strlen(newEmail) + 1;
+            strcpy_s(collection.data[i].email,len, newEmail);
             end = true;
         }
     }
@@ -205,10 +206,10 @@ bool commands(StudentsCollection& collection){ // We don't pass StudentsCollecti
 int main()
 {
     std::cout << "Open file: ";
-    //char fileName[MAX_SIZE];
-    //std::cin >> fileName;
+    char fileName[MAX_SIZE];
+    std::cin >> fileName;
 
-    char fileName[] = "students.csv";
+    //char fileName[] = "students.csv";
 
     StudentsCollection collection;
     fillStudentsCollection(collection, fileName);
