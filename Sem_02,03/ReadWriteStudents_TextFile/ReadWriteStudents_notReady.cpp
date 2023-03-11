@@ -129,10 +129,44 @@ void printByFn(const StudentsCollection& collection, const char* fn, size_t size
 	}
 }
 
+void changeStudentEmail(const StudentsCollection& collection, const char* fn, const char* newEmail, size_t size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		if (strcmp(collection.data[i].fn, fn) == 0)
+			strcpy(collection.data[i].email, newEmail);
+	}
+}
+
+void writeStudentInfo(const Student& student, std::ofstream& file)
+{
+	file << student.firstName << ',' << student.lastName << ',' << student.email << ',' << student.fn << std::endl;
+}
+
+void saveFile(const StudentsCollection& collection, const char* fileName, size_t size)
+{
+	std::ofstream file(fileName);
+	if (!file.is_open())
+	{
+		std::cout << "File can't be opened!" << std::endl;
+		return;
+	}
+
+	char firstLine[MAX_SIZE] = "First name,Last name,Email address,FN\n";
+	file << firstLine;
+
+	for (size_t i = 0; i < size; i++)
+		writeStudentInfo(collection.data[i], file);
+
+	file.close();
+}
+
+
 int main()
 {
 	std::cout << "Open file: ";
 	char fileName[MAX_SIZE];
+	std::cout << ">";
 	std::cin >> fileName;
 
 	StudentsCollection collection;
@@ -145,17 +179,38 @@ int main()
 	std::cout << "File successfully opened!" << std::endl << std::endl;
 
 	char command[MAX_SIZE];
-	std::cin >> command;
-
-	if (strcmp(command, "print") == 0)
+	do
 	{
-		char fn[MAX_SIZE];
-		std::cin >> fn;
+		std::cout << ">";
+		std::cin >> command;
 
-		printByFn(collection, fn, size);
-		std::cout << std::endl;
-	}
-	// HW: Implement the rest of the commands
+		if (strcmp(command, "print") == 0)
+		{
+			char fn[MAX_SIZE];
+			std::cin >> fn;
+
+			printByFn(collection, fn, size);
+			std::cout << std::endl;
+		}
+
+		else if (strcmp(command, "edit") == 0)
+		{
+			char fn[MAX_SIZE], newEmail[MAX_SIZE];
+			std::cin >> fn >> newEmail;
+
+			changeStudentEmail(collection, fn, newEmail, size);
+			std::cout << std::endl;
+		}
+
+		else if (strcmp(command, "save") == 0)
+		{
+			char fileName[MAX_SIZE];
+			std::cin >> fileName;
+
+			saveFile(collection, fileName, size);
+			std::cout << "File " << fileName << " successfully saved!" << std::endl << std::endl;
+		}
+	} while (strcmp(command, "exit") != 0);
 
 	delete[] collection.data;
 }
