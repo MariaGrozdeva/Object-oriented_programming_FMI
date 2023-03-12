@@ -129,6 +129,50 @@ void printByFn(const StudentsCollection& collection, const char* fn, size_t size
 	}
 }
 
+int saveStudentsDatabase(StudentsCollection& collection, const char* fileName, size_t size) {
+    int studentsSize = 0;
+    std::ofstream file;
+    // ios::trunc - Ако файлът съществува, съдържанието му се изтрива.
+    file.open(fileName, std::ofstream::out | std::ofstream::trunc);
+
+    if (!file.is_open())
+    {
+        std::cout << "File can't be opened!" << std::endl;
+        return -1;
+    }
+
+    file << "First name,Last name,Email address,FN" << std::endl;
+
+    for(int i = 0 ; i < size ; i++) {
+        file << collection.data[i].firstName << ","
+        << collection.data[i].lastName << ","
+        << collection.data[i].email << ","
+        << collection.data[i].fn;
+
+        if(i != size - 1) {
+            file << std::endl;
+        }
+        studentsSize ++;
+    }
+
+    file.close();
+    return studentsSize;
+}
+
+void changeEmailByFn(StudentsCollection& collection, const char* fn, const char* email, size_t size, const char* fileName) {
+    for (int i = 0; i < size; i++) {
+        if(strcmp(collection.data[i].fn, fn) == 0) {
+            strcpy(collection.data[i].email, email);
+            std::cout << "Email of " << collection.data[i].firstName << " is changed with " << email << std::endl;
+        }
+    }
+
+    int studentsSize = saveStudentsDatabase(collection, fileName, size);
+    if(studentsSize == size) {
+        std::cout << "The students database was updated!" << std::endl;
+    }
+}
+
 int main()
 {
 	std::cout << "Open file: ";
@@ -144,6 +188,7 @@ int main()
 
 	std::cout << "File successfully opened!" << std::endl << std::endl;
 
+    std::cout << " > " ;
 	char command[MAX_SIZE];
 	std::cin >> command;
 
@@ -155,7 +200,23 @@ int main()
 		printByFn(collection, fn, size);
 		std::cout << std::endl;
 	}
-	// HW: Implement the rest of the commands
+
+    else if(strcmp(command, "edit") == 0) {
+        char fn[MAX_SIZE];
+        std::cin >> fn;
+
+        char email[MAX_SIZE];
+        std::cin >> email;
+
+        changeEmailByFn(collection, fn, email, size, fileName);
+    }
+
+    else if(strcmp(command, "save") == 0) {
+        char newFileName[MAX_SIZE];
+        std::cin >> newFileName;
+
+        saveStudentsDatabase(collection, newFileName, size);
+    }
 
 	delete[] collection.data;
 }
