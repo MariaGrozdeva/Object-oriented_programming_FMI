@@ -161,52 +161,6 @@ void saveToDisk(const StudentsCollection& collection, const char *filename) {
     file.close();
 }
 
-bool commands(StudentsCollection& collection){ // We don't pass StudentsCollection as const reference, because we need to change the email string with 'edit' command.
-    bool continueLoop = true;
-    char command[MAX_SIZE];
-    std::cout << "> ";
-    std::cin >> command;
-
-    if(strcmp(command, "help") == 0){
-        std::cout  << std::left << std::setw(50)
-                   << "help" << "Prints this help command." << std::endl
-                   << std::left << std::setw(50)
-                   << "print [Faculty Number]" << "Prints student information by their faculty number." << std::endl
-                   << std::left << std::setw(50)
-                   << "edit [Faculty Number] [New Email]"  << "Changes student's email by their faculty number." << std::endl
-                   << std::left << std::setw(50)
-                   << "save [Filename]" << "Saves changes to new file." << std::endl
-                   << std::left << std::setw(50)
-                   << "exit" << "Program Exits." << std::endl;
-    }
-    else if (strcmp(command, "print") == 0){
-        char fn[MAX_SIZE];
-        std::cin >> fn;
-
-        printByFn(collection, fn);
-        std::cout << std::endl;
-    }
-    else if(strcmp(command, "edit") == 0){
-        char fn[MAX_SIZE];
-        char newEmail[MAX_SIZE];
-        std::cin >> fn >> newEmail;
-        updateEmailByFN(collection, newEmail, fn);
-    }
-    else if(strcmp(command, "save") == 0){
-        char newFilename[MAX_SIZE];
-        std::cin >> newFilename;
-        saveToDisk(collection, newFilename);
-        //std::cout << "Here:" << newFilename << collection.data[0].email << std::endl;
-    }
-
-
-    else if(strcmp(command, "exit") == 0){
-        continueLoop = false;
-        return continueLoop;
-    }
-    return continueLoop;
-}
-
 int main()
 {
     std::cout << "Open file: ";
@@ -223,6 +177,45 @@ int main()
     }
     std::cout << "File successfully opened!" << std::endl << std::endl;
     std::cout << "Enter help to list commands." << std::endl;
-    while (commands(collection)){}
+    
+    char command[MAX_SIZE];
+    bool loopCommandsUntilEnteringExit = true;
+    while (loopCommandsUntilEnteringExit){
+        std::cout << "> ";
+        std::cin >> command;
+        if(strcmp(command, "help") == 0){
+            std::cout  << std::left << std::setw(50)
+                       << "help" << "Prints this help command." << std::endl
+                       << std::left << std::setw(50)
+                       << "print [Faculty Number]" << "Prints student information by their faculty number." << std::endl
+                       << std::left << std::setw(50)
+                       << "edit [Faculty Number] [New Email]"  << "Changes student's email by their faculty number." << std::endl
+                       << std::left << std::setw(50)
+                       << "save [Filename]" << "Saves changes to new file." << std::endl
+                       << std::left << std::setw(50)
+                       << "exit" << "Program Exits." << std::endl;
+        }
+        else if (strcmp(command, "print") == 0){
+            char fn[MAX_SIZE];
+            std::cin >> fn;
+            printByFn(collection, fn);
+            std::cout << std::endl;
+        }
+        else if(strcmp(command, "edit") == 0){
+            char fn[MAX_SIZE];
+            char newEmail[MAX_SIZE];
+            std::cin >> fn >> newEmail;
+            updateEmailByFN(collection, newEmail, fn);
+        }
+        else if(strcmp(command, "save") == 0){
+            char newFilename[MAX_SIZE];
+            std::cin >> newFilename;
+            saveToDisk(collection, newFilename);
+        }
+        else if(strcmp(command, "exit") == 0){
+            loopCommandsUntilEnteringExit = false;
+        }
+    }
+
     delete[] collection.data;
 }
