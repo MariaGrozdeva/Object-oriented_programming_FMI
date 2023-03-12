@@ -143,7 +143,7 @@ void updateEmailByFN(StudentsCollection& collection, char newEmail[],char fn[]){
     }
 }
 
-void saveToDisc(const StudentsCollection& collection, char *filename) {
+void saveToDisc(const StudentsCollection& collection, const char *filename) {
     std::ofstream file;
     char comma = ',';
     file.open(filename);
