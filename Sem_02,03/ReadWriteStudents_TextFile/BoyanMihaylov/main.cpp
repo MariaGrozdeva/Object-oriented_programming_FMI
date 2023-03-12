@@ -143,10 +143,14 @@ void updateEmailByFN(StudentsCollection& collection, char newEmail[],char fn[]){
     }
 }
 
-void saveToDisc(const StudentsCollection& collection, const char *filename) {
+void saveToDisk(const StudentsCollection& collection, const char *filename) {
     std::ofstream file;
     char comma = ',';
     file.open(filename);
+    if(!file){
+        std::cout << "File '" << filename << "' can't be opened!\nSaving to disk failed." << std::endl;
+        return;
+    }
     file << "First name,Last name,Email address,FN" << std::endl;
     for (int i = 0; i < collection.size; ++i) {
         file << collection.data[i].firstName << comma
@@ -191,7 +195,7 @@ bool commands(StudentsCollection& collection){ // We don't pass StudentsCollecti
     else if(strcmp(command, "save") == 0){
         char newFilename[MAX_SIZE];
         std::cin >> newFilename;
-        saveToDisc(collection, newFilename);
+        saveToDisk(collection, newFilename);
         //std::cout << "Here:" << newFilename << collection.data[0].email << std::endl;
     }
 
