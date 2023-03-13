@@ -23,7 +23,7 @@ void writeStudentsToFile(const StudentsCollection& collection, std::ofstream& oF
 		oFile.write((const char*)&len, sizeof(len));
 		oFile.write(collection.data[i].name, len);
 		oFile.write((const char*)&collection.data[i].age, sizeof(collection.data[i].age));
-		oFile.write(collection.data[i].fn, sizeof(collection.data[i].fn));
+		oFile.write(collection.data[i].fn, strlen(collection.data[i].fn));
 	}
 }
 
@@ -38,7 +38,7 @@ void readStudentsFromFile(StudentsCollection& collection, std::ifstream& iFile, 
 		collection.data[i].name[nameLen] = '\0';
 
 		iFile.read((char*)&collection.data[i].age, sizeof(collection.data[i].age));
-		iFile.read(collection.data[i].fn, sizeof(collection.data[i].fn));
+		iFile.read(collection.data[i].fn, strlen(collection.data[i].fn));
 	}
 }
 
