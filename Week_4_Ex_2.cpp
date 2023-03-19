@@ -171,7 +171,6 @@ int main()
     while (true)
     {
         std::cout << "Enter command: ";
-        // because save as is two words
         std::cin >> command;
 
         if (strcmp(command, "view") == 0)
