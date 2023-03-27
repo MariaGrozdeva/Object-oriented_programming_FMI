@@ -65,6 +65,8 @@ public:
 
 -> *Source.exe*
 
+---
+
 # Разделна компилация
 
 ![alt_text](https://i.ibb.co/KsfDr85/h-cpp.png)
