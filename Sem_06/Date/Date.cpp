@@ -1,6 +1,6 @@
 #include "Date.h"
 
-bool isLeapYear()
+bool isLeapYear(unsigned int year)
 {
 	if (year <= 1916)
 	{
