@@ -71,7 +71,7 @@ public:
 int main()
 {
     Person p1;
-    Person p2(p1);
+    Person p2(p1); // p2 is a shallow copy of p1
 }
 ```
 Копиращият конструктор, създаден от компилатора, има **неправилно поведение**. :x:
