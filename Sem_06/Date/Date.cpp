@@ -14,6 +14,8 @@ Date::Date(unsigned int day, unsigned int month, unsigned int year)
 	update(day, month, year);
 }
 
+Date::Date() : Date(1, 1, 1970) {}
+
 unsigned int Date::getDayOfWeek() const
 {
 	if (!isModified)
@@ -24,7 +26,7 @@ unsigned int Date::getDayOfWeek() const
 	Date date(1, 1, 1);
 	unsigned int dayOfWeek = 5; // 0-Monday, 1-Tuesday,.., 6-Sunday (On 01.01.01 was Saturday)
 
-	while (!areEqual(date))
+	while (!isEqualTo(date))
 	{
 		date.goNextDay();
 		(dayOfWeek += 1) %= 7;
@@ -43,7 +45,7 @@ bool Date::isEqualTo(const Date& other) const
 
 void Date::goNextDay()
 {
-	if (areEqual(Date(31, 3, 1916)))
+	if (isEqualTo(Date(31, 3, 1916)))
 	{
 		setDay(14);
 		setMonth(4);

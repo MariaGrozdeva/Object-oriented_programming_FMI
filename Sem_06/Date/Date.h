@@ -21,8 +21,8 @@ private:
 	void setDay(unsigned int day);
 
 public:
+    Date();
 	Date(unsigned int day, unsigned int month, unsigned int year);
-
 	unsigned int getDayOfWeek() const;
 
 	bool isEqualTo(const Date& other) const;
