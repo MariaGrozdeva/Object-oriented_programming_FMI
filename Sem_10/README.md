@@ -118,7 +118,7 @@ int main()
 }
 ```
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private/blob/main/Sem_10/StackUnwinding.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_10/StackUnwinding.png)
 
 ### Изключения в конструкторите
 
