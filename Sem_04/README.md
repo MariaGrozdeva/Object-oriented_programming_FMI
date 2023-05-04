@@ -4,7 +4,7 @@
 - Отваряне на двоичен файл за **четене**  
 ```c++
 #include <iostream>
-#include <fstream>
+#include <fstream> 
 
 int main()
 {
