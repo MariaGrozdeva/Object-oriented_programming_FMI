@@ -67,6 +67,11 @@ bool operator>(const MyString& lhs, const MyString& rhs)
 
 MyString::MyString(const char* str)
 {
+	if (str == nullptr || this->str == str)
+	{
+		return;
+	}
+	
 	size_t len = strlen(str);
 	this->str = new char[len + 1];
 	strcpy(this->str, str);
