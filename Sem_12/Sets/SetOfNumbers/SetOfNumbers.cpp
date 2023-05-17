@@ -181,4 +181,5 @@ void SetOfNumbers::moveFrom(SetOfNumbers&& other)
 void SetOfNumbers::free()
 {
     delete[] data;
+    data = nullptr;
 }
