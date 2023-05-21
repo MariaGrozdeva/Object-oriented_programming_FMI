@@ -1,6 +1,6 @@
-#include "Circle.h"
-#include "Triangle.h"
-#include "Rectangle.h"
+#include "Circle/Circle.h"
+#include "Triangle/Triangle.h"
+#include "Rectangle/Rectangle.h"
 
 void printAreas(const Shape* const* shapes, size_t shapesCount)
 {
