@@ -47,8 +47,6 @@ MyClass(const MyClass& other)
 }
 ```
 
----
-
 ## Диамантен проблем
 ![alt_text](https://i.ibb.co/VW52qKC/Diamond.jpg)
 
@@ -168,8 +166,6 @@ template struct Foo<int>;
 template struct Foo<double>;
 // ...
 ```
-
----
 
 ## Специализация на шаблони
 ```c++
