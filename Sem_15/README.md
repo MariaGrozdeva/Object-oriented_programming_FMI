@@ -85,7 +85,7 @@ class C : public virtual A
 };
 ``` 
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private/blob/main/Sem_14/img/Multiple_Inheritance1.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_15/img/Multiple_Inheritance1.png)
 
 ```c++
 struct A { int a = 4; };
@@ -101,7 +101,7 @@ struct D : B, C
 };
 ```
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private/blob/main/Sem_14/img/Multiple_Inheritance2.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_15/img/Multiple_Inheritance2.png)
 
 ❗ Конструкторите с параметри на виртуални класове трябва да се извикват от конструкторите на всички класове, които са техни наследници, а не само от конструкторите на преките им наследници.
 
