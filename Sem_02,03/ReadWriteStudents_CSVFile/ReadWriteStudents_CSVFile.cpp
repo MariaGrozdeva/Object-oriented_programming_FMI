@@ -129,41 +129,48 @@ void printByFn(const StudentsCollection& collection, const char* fn, size_t size
 	}
 }
 
-void changeEmail(const StudentsCollection& collection, const char* fn, const char* newEmail, size_t size)
-{
-	for (size_t i = 0; i < size; i++)
-	{
-		if (strcmp(collection.data[i].fn, fn) == 0)
-		{
-			strcpy(collection.data[i].email, newEmail);
-			return; // fn is unique
-		}
-	}
+int saveStudentsDatabase(StudentsCollection& collection, const char* fileName, size_t size) {
+    int studentsSize = 0;
+    std::ofstream file;
+    // ios::trunc - Ако файлът съществува, съдържанието му се изтрива.
+    file.open(fileName, std::ofstream::out | std::ofstream::trunc);
+
+    if (!file.is_open())
+    {
+        std::cout << "File can't be opened!" << std::endl;
+        return -1;
+    }
+
+    file << "First name,Last name,Email address,FN" << std::endl;
+
+    for(int i = 0 ; i < size ; i++) {
+        file << collection.data[i].firstName << ","
+        << collection.data[i].lastName << ","
+        << collection.data[i].email << ","
+        << collection.data[i].fn;
+
+        if(i != size - 1) {
+            file << std::endl;
+        }
+        studentsSize ++;
+    }
+
+    file.close();
+    return studentsSize;
 }
 
-void saveStudent(const Student& student, std::ofstream& file)
-{
-	file << student.firstName << ',' << student.lastName << ',' << student.email << ',' << student.fn << std::endl;
-}
+void changeEmailByFn(StudentsCollection& collection, const char* fn, const char* email, size_t size, const char* fileName) {
+    for (int i = 0; i < size; i++) {
+        if(strcmp(collection.data[i].fn, fn) == 0) {
+            strcpy(collection.data[i].email, email);
+            std::cout << "Email of " << collection.data[i].firstName << " is changed with " << email << std::endl;
+        }
+    }
 
-void save(const StudentsCollection& collection, const char* fileName, size_t size)
-{
-	std::ofstream file(fileName);
-	if (!file.is_open())
-	{
-		std::cout << "File can't be opened!" << std::endl;
-		return;
-	}
-
-	char firstLine[MAX_SIZE] = "First name,Last name,Email address,FN\n";
-	file << firstLine;
-
-	for (size_t i = 0; i < size; i++)
-	{
-		saveStudent(collection.data[i], file);
-	}
-
-	file.close();
+    int studentsSize = saveStudentsDatabase(collection, fileName, size);
+    if(studentsSize == size) {
+        std::cout << "The students database was updated!" << std::endl;
+    }
 }
 
 int main()
@@ -181,38 +188,35 @@ int main()
 
 	std::cout << "File successfully opened!" << std::endl << std::endl;
 
+    std::cout << " > " ;
 	char command[MAX_SIZE];
-	do
+	std::cin >> command;
+
+	if (strcmp(command, "print") == 0)
 	{
-		std::cin >> command;
+		char fn[MAX_SIZE];
+		std::cin >> fn;
 
-		if (strcmp(command, "print") == 0)
-		{
-			char fn[MAX_SIZE];
-			std::cin >> fn;
+		printByFn(collection, fn, size);
+		std::cout << std::endl;
+	}
 
-			printByFn(collection, fn, size);
-			std::cout << std::endl;
-		}
+    else if(strcmp(command, "edit") == 0) {
+        char fn[MAX_SIZE];
+        std::cin >> fn;
 
-		else if (strcmp(command, "edit") == 0)
-		{
-			char fn[MAX_SIZE], newEmail[MAX_SIZE];
-			std::cin >> fn >> newEmail;
+        char email[MAX_SIZE];
+        std::cin >> email;
 
-			changeEmail(collection, fn, newEmail, size);
-			std::cout << std::endl;
-		}
+        changeEmailByFn(collection, fn, email, size, fileName);
+    }
 
-		else if (strcmp(command, "save") == 0)
-		{
-			char fileName[MAX_SIZE];
-			std::cin >> fileName;
+    else if(strcmp(command, "save") == 0) {
+        char newFileName[MAX_SIZE];
+        std::cin >> newFileName;
 
-			save(collection, fileName, size);
-			std::cout << "File " << fileName << " successfully saved!" << std::endl << std::endl;
-		}
-	} while (strcmp(command, "exit") != 0);
+        saveStudentsDatabase(collection, newFileName, size);
+    }
 
 	delete[] collection.data;
 }
