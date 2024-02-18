@@ -1,7 +1,0 @@
-SoF vAr 70
-fra LHR 115
-paris rome 82
-CDG FCO 16s
-MXp nCE 86
-MXp NICE 86
-airport
