@@ -3,7 +3,7 @@
 1. [Указатели и референции](https://github.com/MariaGrozdeva/Introduction_to_programming_FMI/tree/main/Sem_07)
 
 2. Видове памет:
-<img style="object-fit:contain;" align="right" width="450" height="600" src="https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_01/images/memory.png">
+<img style="object-fit:contain;" align="right" width="450" height="600" src="https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_01/images/memory.png">
 
 Паметта, която използваме в C++, се разделя на четири основни типа:
 - **Глобална (статична)**: в тази памет се записват статични/глобални променливи.
@@ -23,7 +23,7 @@
 ---
 
 # Обектно-ориентирано програмиране
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_01/images/oop.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_01/images/oop.png)
 
 Обектно-ориентирано програмиране е **програмна парадигма**, при която една програмна система се моделира като набор от обекти, които взаимодействат помежду си, за разлика от традиционното виждане, при което една програма е списък от инструкции, които процесорът изпълнява. Всеки обект е способен да получава съобщения, обработва данни и праща съобщения на други обекти.
 
@@ -219,7 +219,7 @@ struct Test
 ```
 На пръв поглед, за създаване на инстанция на структурата Test са ни нужни 9 байта памет. Но само на пръв поглед.  
 
-![alt_text](https://i.ibb.co/LQL4tMR/Padding.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_01/images/padding.png)
 
 Т.е. за създаване на такава инстанция са ни нужни 4 (sizeof(i1)) + 1 (sizeof\(c\)) + 3 (padding) + 4 (sizeof(i2)) = 12 байта.  
 
@@ -282,7 +282,7 @@ int main()
 }
 ```
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_01/images/union.jpg)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_01/images/union.jpg)
 
 ---
 
