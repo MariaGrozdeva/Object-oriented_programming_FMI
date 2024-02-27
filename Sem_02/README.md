@@ -14,7 +14,7 @@ enum Gender { Male, Female };
 enum Gender2 { Male, Female };
 ```
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_02%2C03/images/unscopedEnums.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_02%2C03/images/unscopedEnums.png)
 
 2. Не можем да създадем променлива с име, което вече съществува като енумератор в някой enum:
 ```c++
@@ -139,15 +139,15 @@ int main()
 
 Потокът е последователност от байтове.  
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_02%2C03/images/streams.gif)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_02%2C03/images/streams.gif)
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_02%2C03/images/streams.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_02%2C03/images/streams.png)
 
 **Видове потоци:**  
 - Потоци за **вход (istream)**.  
 - Потоци за **изход (ostream)**.  
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_02%2C03/images/ios.gif)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_02%2C03/images/ios.gif)
 
 ***istream:*** Клас, в който е дефиниран оператор >>, както и член-функциите get(), getline(), read().  
 ***ostream:*** Клас, в който е дефиниран оператор <<, както и член-функциите put(), write().  
