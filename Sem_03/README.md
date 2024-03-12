@@ -49,11 +49,11 @@ int main()
 ```
 Как изглежда файлът?  
 
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile1.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile1.png)  
 
 Как да го прочетем?  
 
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile1HexViewer.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile1HexViewer.png)  
 Съдържанието на файла (числото 1000) в шестнайсетична бройна система.  
 
 Байтовете са записани в **обратен ред** (най- старшият байт е последен), защото програмата е изпълнена на машина с **little endian** процесорна архитектура.  
@@ -113,11 +113,11 @@ int main()
 
 Как изглежда файлът?  
 
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile2.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile2.png)  
 
 "Разчетен:"  
 
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile2HexViewer.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_03/images/binFile2HexViewer.png)  
 
 ---
 
