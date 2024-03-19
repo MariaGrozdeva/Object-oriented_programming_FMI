@@ -338,7 +338,7 @@ int main()
 ```
 Изход:  
 
-![alt_text](https://i.ibb.co/ZVL7m0d/Constr-Destr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_04/images/ConstrDestrOrder.png)
 
 :bangbang: Когато имаме клас X, в който имаме обекти от други класове (A, B) и последните нямат конструктори по подразбиране, задължително **в конструктора на X трябва експлицитно да извикаме конструкторите на A и B**.
 
