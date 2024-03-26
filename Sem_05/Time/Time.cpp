@@ -40,6 +40,11 @@ unsigned Time::getSeconds() const
     return secondsFromMidnight % 60;
 }
 
+unsigned Time::getTimeInSeconds() const
+{
+    return secondsFromMidnight;
+}
+
 void Time::tick()
 {
     ++secondsFromMidnight %= DAY_SECONDS;
@@ -68,22 +73,5 @@ bool Time::validateAndSet(unsigned lowerBound, unsigned upperBound, unsigned new
 
 int compareTimes(const Time& lhs, const Time& rhs)
 {
-    // We don't have access to secondsFromMidnight field.
-    // We don't know what 'static' and 'friend' keywords are at this point of the course.
-
-    if (lhs.getHours() == lhs.getHours())
-    {
-        if (lhs.getMinutes() == rhs.getMinutes())
-        {
-            return lhs.getSeconds() - rhs.getSeconds();
-        }
-        else
-        {
-            return lhs.getMinutes() - rhs.getMinutes();
-        }
-    }
-    else
-    {
-        return lhs.getHours() - rhs.getHours();
-    }
+    return lhs.getTimeInSeconds() - rhs.getTimeInSeconds();
 }
