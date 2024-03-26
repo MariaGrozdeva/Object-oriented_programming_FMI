@@ -24,6 +24,7 @@ public:
     unsigned getHours() const;
     unsigned getMinutes() const;
     unsigned getSeconds() const;
+    unsigned getTimeInSeconds() const;
 
     void tick();
     void serialize(std::ostream& os) const;
