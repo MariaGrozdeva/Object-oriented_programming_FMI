@@ -152,6 +152,10 @@ void GraduatedStudent::free()
 	{
 		(m_averageGradeForAllGraduates -= m_averageGrade) /= m_allGraduatesCount;
 	}
+	else
+	{
+		m_averageGradeForAllGraduates = 0;
+	}
 	
 	delete[] m_name;
 	delete[] m_grades;
