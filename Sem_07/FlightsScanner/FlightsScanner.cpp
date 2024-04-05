@@ -75,7 +75,7 @@ void FlightsScanner::parseLine(const char* line, FlightsScanner::FlightRecord& r
 	}
 	catch (const std::bad_cast& e)
 	{
-		static constexpr unsigned DEFAULT_AMOUNT = 50;
+		static constexpr unsigned int DEFAULT_AMOUNT = 50;
 		std::cout << "Invalid amount. Setting to default value: " << DEFAULT_AMOUNT << std::endl;
 		record.amount = DEFAULT_AMOUNT;
 		throw;
