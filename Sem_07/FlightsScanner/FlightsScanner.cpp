@@ -52,6 +52,7 @@ void FlightsScanner::parseLine(const char* line, FlightsScanner::FlightRecord& r
 	}
 	catch (const std::length_error& e)
 	{
+		std::cout << "Error while processing the origin. Given: " << record.origin << std::endl;
 		throw;
 	}
 
@@ -62,6 +63,7 @@ void FlightsScanner::parseLine(const char* line, FlightsScanner::FlightRecord& r
 	}
 	catch (const std::length_error& e)
 	{
+		std::cout << "Error while processing the destination. Given: " << record.origin << std::endl;
 		throw;
 	}
 
@@ -73,6 +75,9 @@ void FlightsScanner::parseLine(const char* line, FlightsScanner::FlightRecord& r
 	}
 	catch (const std::bad_cast& e)
 	{
+		static constexpr unsigned DEFAULT_AMOUNT = 50;
+		std::cout << "Invalid amount. Setting to default value: " << DEFAULT_AMOUNT << std::endl;
+		record.amount = DEFAULT_AMOUNT;
 		throw;
 	}
 }
