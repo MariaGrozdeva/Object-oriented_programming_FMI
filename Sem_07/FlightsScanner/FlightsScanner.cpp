@@ -63,7 +63,7 @@ void FlightsScanner::parseLine(const char* line, FlightsScanner::FlightRecord& r
 	}
 	catch (const std::length_error& e)
 	{
-		std::cout << "Error while processing the destination. Given: " << record.origin << std::endl;
+		std::cout << "Error while processing the destination. Given: " << record.dest << std::endl;
 		throw;
 	}
 
