@@ -5,7 +5,7 @@
 class Person
 {
 private:
-	char* name;
+	char* name = nullptr;
 	unsigned int age;
 
 	void copyFrom(const Person& other);
