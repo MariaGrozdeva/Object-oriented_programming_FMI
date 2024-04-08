@@ -5,7 +5,8 @@ class GraduatedStudent
 {
 public:
     	GraduatedStudent(const char* name, const unsigned* grades, size_t gradesCount, const char* quote);
-    
+
+	GraduatedStudent() = default;
 	GraduatedStudent(const GraduatedStudent& other);
 	GraduatedStudent& operator=(const GraduatedStudent& other);
 	~GraduatedStudent();
