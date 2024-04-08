@@ -16,7 +16,7 @@ private:
         }
     };
 
-    Point* path;
+    Point* path = nullptr;
     size_t capacity = 8;
     size_t count = 0;
 
@@ -29,7 +29,7 @@ private:
     void free();
 
 public:
-    GPSPath();
+    GPSPath() = default;
     GPSPath(const GPSPath& other);
     GPSPath& operator=(const GPSPath& other);
     ~GPSPath();
