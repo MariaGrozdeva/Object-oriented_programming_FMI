@@ -29,7 +29,7 @@ private:
     void free();
 
 public:
-    GPSPath() = default;
+    GPSPath();
     GPSPath(const GPSPath& other);
     GPSPath& operator=(const GPSPath& other);
     ~GPSPath();
