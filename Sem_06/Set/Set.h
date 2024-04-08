@@ -6,6 +6,7 @@ class Set
 public:
 	Set(unsigned n);
 
+	Set() = default;
 	Set(const Set& other);
 	Set& operator=(const Set& other);
 	~Set();
