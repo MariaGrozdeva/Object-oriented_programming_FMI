@@ -15,7 +15,7 @@
 - Позиция на оператора спярмо аргумента – *префиксен* оператор, *инфиксен* оператор, *суфиксен* оператор
 
 ### Списък на операторите в C++
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_08/OperatorsPrecedence.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_08/images/OperatorsPrecedence.png)
 
 ---
 
@@ -108,7 +108,7 @@ c1 == c2 <=> operator==(c1, c2)
 
 ### Предефиниране чрез обикновени или член-функции?
 - Кога **се налага** да предефинираме оператори чрез член-функции?
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_08/Operators.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_08/images/Operators.png)
 
 - Кога **се налага** да предефинираме оператори чрез обикновени функции?
   - Когато искаме да предефинираме бинарен оператор, чийто **първи аргумент не е обект от нашия клас**.
