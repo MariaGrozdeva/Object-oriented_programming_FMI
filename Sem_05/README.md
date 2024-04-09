@@ -1,6 +1,6 @@
 # Процес на компилация (oversimplified)
 
-![alt_text](https://i.ibb.co/fD6XLJM/Compilation.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_05/images/Compilation.png)
 
 Нека нашият код се намира във файл с име Source.cpp. Как ще получим Source.exe?  
 *Source.cpp* ->
@@ -20,7 +20,7 @@
 
 # Разделна компилация
 
-![alt_text](https://i.ibb.co/KsfDr85/h-cpp.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_05/images/HeaderAndCpp.png)
 
 Какви грешки ще получим, изпълнявайки следните програмни фрагменти?  
 
@@ -89,11 +89,11 @@ int main()
 ```
 Какво ще се случи? Успешна компилация. :heavy_check_mark:
 
-![alt_text](https://i.ibb.co/Gcywtts/Linking.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_05/images/Linking.png)
 
 ---
 
-![alt_text](https://i.ibb.co/7kxRV1K/Compilation-2.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_05/images/Compilation2.png)
 
 Една програма на С++ може да бъде разбита в множество файлове, които **се компилират независимо един от друг**, т.е. се осъществява **разделна компилация**. В резултат на компилацията се получават няколко **обектни файла** (файлове с разширение **.obj**). Изпълнимият код на програмата (файл с разширение **.ехе**) се получава след свързване (**linking**) на обектните файлове (и външните библиотеки).  
 
