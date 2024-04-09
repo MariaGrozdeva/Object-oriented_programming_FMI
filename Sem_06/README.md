@@ -38,13 +38,13 @@ struct Test
 ```
 
 #### Пример за конструктора по подразбиране:
-![alt_text](https://i.ibb.co/N7br0ZX/default-Constr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_06/images/Constr.png)
 
 #### Пример за деструктора:
-![alt_text](https://i.ibb.co/t3rCZFK/default-Destr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_06/images/Destr.png)
 
 #### Пример за копиращия конструктор:
-![alt_text](https://i.ibb.co/mCBdWRt/copy-Constr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_06/images/CopyConstr.png)
 
 ### Проблем при функциите, генерирани от компилатора:
 Да разгледаме следния код:
@@ -78,11 +78,11 @@ int main()
 
 Създаденото копие се нарича **shallow copy**. В p2 **сме копирали указателя, а не самото име** на p1, което води до споделяне на обща динамична памет. В тази ситуация **трябва да се имплементират експлицитно** ***копиращия конструктор***, ***оператора за присвояване*** и ***деструктора***, защото генерираните от компилатора не работят правилно.
 
-![alt_text](https://i.ibb.co/DKJcjtk/shallow-Copy.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_06/images/ShallowCopy.png)
 
 **Правилното поведение** на копиращия конструктор е следното: :heavy_check_mark:
 
-![alt_text](https://i.ibb.co/LCcJDLx/right-Copy.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_06/images/RealCopy.png)
 
 ## Собствена имплементация на голямата четворка
 ```c++
