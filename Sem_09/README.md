@@ -1,6 +1,6 @@
 ## Масиви от указатели към обекти
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_11/img/ArrayOfPointers.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_09/images/ArrayOfPointers.png)
 
 **Задача:** Да се реализира клас SortedStringPool, представляващ сортирана колекция от низове с ограничена дължина (< 64). Класът трябва да съдържа методи за добавяне, премахване и търсене на дума като търсенето трябва да бъде с логаритмична сложност.  
 
@@ -61,7 +61,7 @@ int main()
 ```
 Резултат от изпълнението:
 
-![alt_text](https://i.ibb.co/3SV5J2c/Copy-Constr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_09/images/WithoutMove.png)
 
 **Проблем:** Правим излишни копия :bangbang: Обектът, създаден в createString **се копира два пъти преди да се присвои** на str.
 
@@ -91,14 +91,14 @@ MyString& MyString::operator=(MyString&& other) noexcept
 ```
 Резултат от изпълнението на по- горния програмен фрагмент:
 
-![alt_text](https://i.ibb.co/MPYRScW/Move.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_09/images/WithMove.png)
 
 ---
 
 ### Важно ❗
 Всъщност, резултатът от изпълнението на фрагмента най- вероятно няма да бъде нито един от посочените, а ще бъде:  
 
-![alt_text](https://github.com/MariaGrozdeva/OOP_private_NG/blob/main/Sem_11/img/RVO.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_09/images/RVO.png)
 
 Това се дължи на оптимизация на компилаторите, наречена **return value optimization (RVO)**.  
 https://en.cppreference.com/w/cpp/language/copy_elision
