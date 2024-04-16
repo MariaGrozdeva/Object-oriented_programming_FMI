@@ -8,3 +8,4 @@
 - **Тема 6** : Динамична памет в структури/класове. Голямата четворка (Big 4). Ключова дума static.  
 - **Тема 7** : Изключения (Exceptions).  
 - **Тема 8** : Предефиниране на оператори (Operator overloading). Приятелски класове и функции.  
+- **Тема 9** : Value categories – glvalue, prvalue, xvalue, lvalue, rvalue. Move семантики.  
