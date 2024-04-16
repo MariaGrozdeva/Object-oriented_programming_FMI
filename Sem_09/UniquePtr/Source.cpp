@@ -11,5 +11,5 @@ int main()
 	UniquePtrOfA ptr(new A());
 	UniquePtrOfA other(std::move(ptr));
 	print(other);
-	std::cout << other->a;
+	std::cout << other->a << std::endl;
 }
