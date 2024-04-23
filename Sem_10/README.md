@@ -37,11 +37,11 @@ public:
 - съдържа всички член-данни и методи на основните класове (Person);
 - получава достъп до **някои** от наследените компоненти на основните класове (Person).
 
-![alt_text](https://i.ibb.co/PGKjkx3/st.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_10/images/Student.png)
 
 След като Student е наследник на Person, то при създаване на обект от тип Student се създава обект от тип Person, **който е част от обекта** от тип Student.
 
-![al_text](https://i.ibb.co/z40DsMx/Inheritance.png)
+![al_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_10/images/PersonStudent.png)
 
 ## Видове наследяване
 
