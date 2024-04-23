@@ -3,7 +3,7 @@
 
 void DynamicArrayOfPointers::addAtFirstFreeIndex(const A& el)
 {
-    if (count >= capacity)
+    	if (count >= capacity)
 	{
 		resize(capacity * 2);
 	}
@@ -40,9 +40,9 @@ int DynamicArrayOfPointers::getFirstFreeIndex() const
 void DynamicArrayOfPointers::removeAt(unsigned index)
 {
 	if (index >= count)
-    {
-        throw std::out_of_range("Invalid index!");
-    }
+    	{
+        	throw std::out_of_range("Invalid index!");
+    	}
 
 	delete data[index];
 	data[index] = nullptr;
@@ -81,13 +81,13 @@ void DynamicArrayOfPointers::setAtIndex(const A& obj, unsigned index)
 		throw std::invalid_argument("An object at this index already exists");
 	}
 
-    data[index] = new A(obj);
-    count++;
+    	data[index] = new A(obj);
+    	count++;
 }
 
 void DynamicArrayOfPointers::setAtIndex(A&& obj, unsigned index)
 {
-    if (count >= capacity)
+    	if (count >= capacity)
 	{
 		resize(capacity * 2);
 	}
@@ -97,25 +97,25 @@ void DynamicArrayOfPointers::setAtIndex(A&& obj, unsigned index)
 		throw std::invalid_argument("An object at this index already exists");
 	}
 
-    data[index] = new A(std::move(obj));
-    count++;
+    	data[index] = new A(std::move(obj));
+    	count++;
 }
 
 const A& DynamicArrayOfPointers::operator[](unsigned index) const
 {
-    if (index >= count || !data[index])
-    {
-        throw std::out_of_range("Invalid index!");
-    }
+    	if (index >= count || !data[index])
+    	{
+        	throw std::out_of_range("Invalid index!");
+    	}
 	return *data[index];
 }
 
 A& DynamicArrayOfPointers::operator[](unsigned index)
 {
 	if (index >= count || !data[index])
-    {
-        throw std::out_of_range("Invalid index!");
-    }
+    	{
+        	throw std::out_of_range("Invalid index!");
+    	}
 	return *data[index];
 }
 
