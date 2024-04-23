@@ -41,8 +41,8 @@ private:
 	size_t capacity;
 	size_t count;
 
-    void copyFrom(const DynamicArrayOfPointers& other);
-    void moveFrom(DynamicArrayOfPointers&& other);
+    	void copyFrom(const DynamicArrayOfPointers& other);
+    	void moveFrom(DynamicArrayOfPointers&& other);
     
 	void free();
 	
