@@ -1,37 +1,8 @@
+// TODO: insert return statement here
+#pragma warning (disable : 4996)
 #include "Teacher.h"
-
-Teacher::Teacher(const char* name, unsigned int age, const char* const* subjects, unsigned int subjectsCount) : Person(name, age)
-{
-	this->subjectsCount = subjectsCount;
-	this->subjects = new char* [subjectsCount];
-
-	for (size_t i = 0; i < subjectsCount; i++)
-	{
-		this->subjects[i] = new char[strlen(subjects[i]) + 1];
-		strcpy(this->subjects[i], subjects[i]);
-	}
-}
-
-Teacher::Teacher(const Teacher& other) : Person(other)
-{
-	copyFrom(other);
-}
-Teacher& Teacher::operator=(const Teacher& other)
-{
-	if (this != &other)
-	{
-		Person::operator=(other);
-
-		free();
-		copyFrom(other);
-	}
-
-	return *this;
-}
-Teacher::~Teacher()
-{
-	free();
-}
+#include <cstring>
+#include <iostream>
 
 void Teacher::free()
 {
@@ -39,17 +10,130 @@ void Teacher::free()
 	{
 		delete[] subjects[i];
 	}
+
 	delete[] subjects;
-	subjects = nullptr;
+	subjectsCount = 0;
 }
+
 void Teacher::copyFrom(const Teacher& other)
 {
-	subjectsCount = other.subjectsCount;
-	subjects = new char* [subjectsCount];
-
-	for (size_t i = 0; i < subjectsCount; i++)
+	subjects = new char* [other.subjectsCount];
+	for (size_t i = 0; i < other.subjectsCount; i++)
 	{
 		subjects[i] = new char[strlen(other.subjects[i]) + 1];
 		strcpy(subjects[i], other.subjects[i]);
 	}
+
+	subjectsCount = other.subjectsCount;
+}
+
+void Teacher::moveFrom(Teacher&& other)
+{
+	subjects = other.subjects;
+	subjectsCount = other.subjectsCount;
+	subjectsCapacity = other.subjectsCapacity;
+
+	other.subjects = nullptr;
+	other.subjectsCount = 0;
+	other.subjectsCapacity = 0;
+}
+
+void Teacher::resize(unsigned newSize)
+{
+	char** temp = new char* [newSize] {nullptr};
+	for (size_t i = 0; i < subjectsCount; i++)
+	{
+		temp[i] = subjects[i];
+	}
+	
+	delete[] subjects;
+	subjects = temp;
+
+	subjectsCapacity = newSize;
+}
+
+Teacher& Teacher::operator=(const Teacher& other)
+{
+	if (this != &other)
+	{
+		free();
+		copyFrom(other);
+	}
+
+	return *this;
+}
+
+Teacher :: Teacher(Teacher&& other) noexcept
+{
+	moveFrom(std::move(other));
+}
+
+Teacher& Teacher::operator=(Teacher&& other) noexcept
+{
+	if (this != &other)
+	{
+		free();
+		moveFrom(std::move(other));
+	}
+
+	return *this;
+}
+
+Teacher::~Teacher()
+{
+	free();
+}
+
+void Teacher::addSubject(const char* newSubject)
+{
+	char* temp = new char[strlen(newSubject) + 1];
+	strcpy(temp, newSubject);
+	if (subjectsCount == subjectsCapacity)
+		resize(subjectsCapacity * 2);
+
+	subjects[subjectsCount++] = temp;
+}
+
+void Teacher::removeSubject(unsigned index)
+{
+	if(index >= subjectsCount)
+	{
+		std::cerr << "Invalid index argument\n";
+	}
+
+	delete subjects[index];
+	
+	for (size_t i = index; i < subjectsCount - 1; i++)
+	{
+		subjects[i] = subjects[i + 1];
+	}
+
+	subjectsCount--;
+	if (subjectsCount <= subjectsCapacity / 4)
+		resize(subjectsCapacity / 2);
+}
+
+unsigned Teacher::getSubjectsCount() const
+{
+	return subjectsCount;
+}
+
+unsigned Teacher::getSubjectsCapacity() const
+{
+	return subjectsCapacity;
+}
+
+char** Teacher::getSubjects() const
+{
+	return subjects;
+}
+
+const char* Teacher::operator[](unsigned index) const
+{	
+	return subjects[index];
+}
+
+char* Teacher::operator[](unsigned index)
+{
+	return subjects[index];
 }
