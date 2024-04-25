@@ -1,19 +1,27 @@
 #pragma once
-#pragma warning (disable : 4996)
 #include "Person.h"
 
 class Teacher : public Person
 {
+public:
+	Teacher();
+	Teacher(const char*, unsigned, const char* const*, size_t);
+	Teacher(const Teacher&);
+	Teacher(Teacher&&) noexcept;
+	Teacher& operator=(const Teacher&);
+	Teacher& operator=(Teacher&&) noexcept;
+	~Teacher();
+
+	void addSubject(const char*);
+	void removeSubject(const char*);
+
+private:
+	void setSubjects(const char* const*, size_t);
+	void free();
+	void resize();
+
 private:
 	char** subjects;
-	unsigned int subjectsCount;
-
-	void free();
-	void copyFrom(const Teacher& other);
-
-public:
-	Teacher(const char* name, unsigned int age, const char* const* subjects, unsigned int subjectsCount);
-	Teacher(const Teacher& other);
-	Teacher& operator=(const Teacher& other);
-	~Teacher();
+	size_t subCount;
+	size_t subCapacity;
 };

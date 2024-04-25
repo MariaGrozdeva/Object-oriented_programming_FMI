@@ -3,12 +3,13 @@
 
 class Student : public Person
 {
-private:
-	unsigned int fn;
-
 public:
-	Student(const char* name, unsigned int age, unsigned int fn);
+	Student();
+	Student(const char*, unsigned, unsigned);
 
-	void setFn(unsigned int fn);
-	unsigned int getFn() const;
+	unsigned getFn() const;
+
+private:
+	unsigned fn;
 };
+
