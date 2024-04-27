@@ -164,33 +164,10 @@ void Teacher::resize()
 		char** tempSubs = new char* [subCapacity*2] {nullptr};
 		for (size_t i = 0; i < subCount; ++i)
 		{
-			tempSubs[i] = new (std::nothrow) char[strlen(subjects[i]) + 1];
-			if (!tempSubs[i])
-			{
-				for (size_t j = 0; j < i; ++j)
-				{
-					delete[] tempSubs[j];
-				}
-				delete[] tempSubs;
-				throw std::bad_alloc();
-			}
-			strcpy(tempSubs[i], subjects[i]);
+			tempSubs[i] = subjects[i];
 		}
 
-		if (subjects)
-			for (size_t i = 0; i < subCount; ++i)
-			{
-				delete[] subjects[i];
-			}
-		delete[] subjects;
-		subjects = tempSubs;
-		subCapacity *= 2;
-	}
-
-	if (subCount != 0 && subCount <= subCapacity / 4)
-	{
-		char** tempSubs = new char* [subCapacity / 4] {nullptr};
-		for (size_t i = 0; i < subCount; ++i)
+		/*for (size_t i = 0; i < subCount; ++i)
 		{
 			tempSubs[i] = new (std::nothrow) char[strlen(subjects[i]) + 1];
 			if (!tempSubs[i])
@@ -209,7 +186,42 @@ void Teacher::resize()
 			for (size_t i = 0; i < subCount; ++i)
 			{
 				delete[] subjects[i];
+			}*/
+
+		delete[] subjects;
+		subjects = tempSubs;
+		subCapacity *= 2;
+	}
+
+	if (subCount != 0 && subCount <= subCapacity / 4)
+	{
+		char** tempSubs = new char* [subCapacity / 4] {nullptr};
+		for (size_t i = 0; i < subCount; ++i)
+		{
+			tempSubs[i] = subjects[i];
+		}
+
+		/*for (size_t i = 0; i < subCount; ++i)
+		{
+			tempSubs[i] = new (std::nothrow) char[strlen(subjects[i]) + 1];
+			if (!tempSubs[i])
+			{
+				for (size_t j = 0; j < i; ++j)
+				{
+					delete[] tempSubs[j];
+				}
+				delete[] tempSubs;
+				throw std::bad_alloc();
 			}
+			strcpy(tempSubs[i], subjects[i]);
+		}
+
+		if (subjects)
+			for (size_t i = 0; i < subCount; ++i)
+			{
+				delete[] subjects[i];
+			}*/
+
 		delete[] subjects;
 		subjects = tempSubs;
 		subCapacity /= 4;
