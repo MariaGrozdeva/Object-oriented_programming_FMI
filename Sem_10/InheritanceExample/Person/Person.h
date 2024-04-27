@@ -16,6 +16,8 @@ public:
 	void setName(const char* newName);
 	void setAge(unsigned newAge);
 
+	void print() const;
+
 private:
 	char* name;
 	unsigned age;

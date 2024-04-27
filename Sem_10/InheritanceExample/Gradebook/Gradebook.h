@@ -2,32 +2,34 @@
 class Gradebook
 {
 public:
-	Gradebook();
+	Gradebook() = default;
 	Gradebook(const Gradebook& other);
 	Gradebook& operator=(const Gradebook& other);
+	Gradebook(Gradebook&& other) noexcept;
+	Gradebook& operator=(Gradebook&& other) noexcept;
 	~Gradebook();
 
-	void add(unsigned newGrade);
-	void remove(unsigned index);
-	void popBack();
-
-	unsigned& operator[](unsigned index);
 	unsigned operator[](unsigned index) const;
+	unsigned& operator[](unsigned index);
 
-	double getAverage() const;
-	unsigned getCount() const;
+	const unsigned* getGrades() const;
+	unsigned getGradesCnt() const;
 	unsigned getCapacity() const;
 
-private:	
+	void pushGrade(unsigned newGrade);
+	void popGrade();
+	void removeGrade(unsigned index);
+
+	void print() const;
+	
+private:
 	unsigned* grades;
 	unsigned count;
 	unsigned capacity;
 
-	double average;
-
+	void resize(unsigned newCapacity);
 	void copyFrom(const Gradebook& other);
+	void moveFrom(Gradebook&& other);
 	void free();
-
-	void resize(unsigned newSize);
 };
 

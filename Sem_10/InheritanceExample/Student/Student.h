@@ -4,13 +4,21 @@
 
 class Student : public Person
 {
-	Student(const char* name, unsigned age, const char fn[10], const Gradebook& grades);
+public:
+	Student() = default;
+	Student(const char* name, unsigned age, const char* fn, const Gradebook& gradeBook);
 
-	const char* getFn() const;
+	void addGrade(unsigned newGrade);
+	void removeGradeAt(unsigned index);
+	void removeGrade();
+
 	const Gradebook& getGrades() const;
+	void print() const;
 
 private:
-	char fn[10];
-	Gradebook grades; // has grades. gradebook takes care of the marks of the student	
+	static constexpr unsigned facultyNumberLen = 10;
+
+	char fn[facultyNumberLen];
+	Gradebook gradeBook;	
 };
 
