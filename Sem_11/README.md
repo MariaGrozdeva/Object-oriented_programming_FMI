@@ -179,7 +179,7 @@ int main()
 
 ---
 
-![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_13/VtableVptr.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_11/images/VtableVptr.png)
 
 ---
 
