@@ -281,17 +281,19 @@ public:
 
 int main()
 {
-	Animal** animals = new Animal * [3];
+	Animal** animals = new Animal * [4];
 
 	animals[0] = new Dog();
 	animals[1] = new Cat();
 	animals[2] = new Cow();
+	animals[3] = new Animal();
 
 	animals[0]->sound();
 	animals[1]->sound();
 	animals[2]->sound();
+	animals[3]->sound(); // Undefined sound (not good - we don't want to be able to create objects of type Animal - it should just be a base for the others)
 
-	delete animals[0], animals[1], animals[2];
+	delete animals[0], animals[1], animals[2], animals[3];
 	delete[] animals;
 }
 ```
