@@ -127,6 +127,7 @@ size_t DynamicArrayOfPointers::size() const
 DynamicArrayOfPointers::DynamicArrayOfPointers()
 {
 	capacity = 8;
+	count = 0;
 	data = new A*[capacity]{ nullptr };
 }
 
