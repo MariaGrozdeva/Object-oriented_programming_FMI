@@ -43,7 +43,7 @@ bool Triangle::intersectsWithTriangle(const Triangle* other) const
 	return true;
 }
 
-bool Triangle::intersectsWithRect(const Rectangle* other) const
+bool Triangle::intersectsWithRectangle(const Rectangle* other) const
 {
 	std::cout << "Formula for triangle with rectangle" << std::endl;
 	return true;
