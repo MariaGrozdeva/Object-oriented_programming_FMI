@@ -6,7 +6,7 @@ void printIfPointsIntersect(const Shape* const* shapes, size_t shapesCount)
 {
 	for (size_t i = 0; i < shapesCount - 1; i++)
 	{
-		std::cout << shapes[i]->intersectsWith(shapes[i + 1]);
+		shapes[i]->intersectsWith(shapes[i + 1]);
 	}
 }
 
