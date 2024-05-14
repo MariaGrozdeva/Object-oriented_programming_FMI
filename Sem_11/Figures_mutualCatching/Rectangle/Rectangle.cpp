@@ -26,7 +26,7 @@ bool Rectangle::isPointInFigure(int x, int y) const
 
 bool Rectangle::intersectsWith(const Shape* other) const
 {
-	return other->intersectsWithRect(this);
+	return other->intersectsWithRectangle(this);
 }
 
 bool Rectangle::intersectsWithCircle(const Circle* other) const
