@@ -5,7 +5,7 @@
 class Shape
 {
 public:
-	Shape(size_t pointsCount);
+	Shape(size_t pointsCount, int shapeType);
 
 	Shape(const Shape& other);
 	Shape& operator=(const Shape& other);
@@ -18,6 +18,8 @@ public:
 	virtual bool isPointInFigure(int x, int y) const = 0; // pure virtual
 
 	virtual Shape* clone() const = 0;
+	
+	int getShapeType() const;
 	
 protected:
 	struct Point
@@ -44,6 +46,8 @@ protected:
 private:
 	Point* points;
 	size_t pointsCount;
+	
+	int shapeType;
 
 	void copyFrom(const Shape& other);
 	void free();
