@@ -1,29 +1,19 @@
 ﻿#include "ShapeCollection.h"
-#include "../Circle/Circle.h"
-#include "../Rectangle/Rectangle.h"
-#include "../Triangle/Triangle.h"
+#include "../ShapeFactory/ShapeFactory.h"
 #include <stdexcept>
 
-void ShapeCollection::addShape(Shape* shape)
+bool ShapeCollection::addShape(int shapeType)
 {
-	if (count == capacity)
+    	Shape* newShape = ShapeFactory::createShape(shapeType);
+	if (newShape)
 	{
-		resize();
+		if (count == capacity)
+		{
+			resize();
+		}
+		shapes[count++] = newShape;
 	}
-	shapes[count++] = shape;
-}
-
-void ShapeCollection::addCircle(int x1, int y1, double radius)
-{
-	addShape(new Circle(x1, y1, radius));
-}
-void ShapeCollection::addRectangle(int x1, int y1, int x3, int y3)
-{
-	addShape(new Rectangle(x1, y1, x3, y3));
-}
-void ShapeCollection::addTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
-{
-	addShape(new Triangle(x1, y1, x2, y2, x3, y3));
+	return newShape;
 }
 
 double ShapeCollection::getAreaOfFigureByIndex(unsigned index) const
@@ -49,6 +39,15 @@ double ShapeCollection::getIsPointInFigureByIndex(unsigned index, int x, int y) 
 		throw std::out_of_range("Index is out of range!");
 	}
 	return shapes[index]->isPointInFigure(x, y);
+}
+
+int ShapeCollection::getShapeTypeByIndex(unsigned index) const
+{
+    	if (index >= count)
+	{
+		throw std::out_of_range("Index is out of range!");
+	}
+	return shapes[index]->getShapeType();
 }
 
 size_t ShapeCollection::size() const
