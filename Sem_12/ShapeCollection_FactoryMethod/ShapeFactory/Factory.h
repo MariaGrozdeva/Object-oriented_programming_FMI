@@ -1,8 +1,8 @@
 #pragma once
-#include "../Animals/Animal.h"
+#include "../Shape/Shape.h"
 
-class AnimalFactory
+class ShapeFactory
 {
 public:
-	static Animal* createAnimal(Animal::AnimalType animalType);
+	static Shape* createShape(int shapeType);
 };
