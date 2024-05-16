@@ -2,25 +2,35 @@
 
 int main()
 {
-	ShapeCollection shapeCollection;
+	ShapeCollection coll;
 
-	shapeCollection.addCircle(3, 4, 1);
-	shapeCollection.addRectangle(1, 1, 9, 9);
-	shapeCollection.addTriangle(1, 2, 9, 4, 0, 0);
+	while (true)
+	{
+	    	std::cout << std::endl << "Enter shape type: " << std::endl;
+		int shapeType;
+		std::cin >> shapeType;
 
-	std::cout << "Perimeters of the figures:" << std::endl;
-	for (size_t i = 0; i < shapeCollection.size(); i++)
-	{
-		std::cout << "Figure " << i << ": " << shapeCollection.getPerimeterOfFigureByIndex(i) << std::endl;
-	}
-	std::cout << std::endl << "Areas of the figures:" << std::endl;
-	for (size_t i = 0; i < shapeCollection.size(); i++)
-	{
-		std::cout << "Figure " << i << ": " << shapeCollection.getAreaOfFigureByIndex(i) << std::endl;
-	}
-	std::cout << std::endl << "Check if point (3,3) is in figure i:" << std::endl;
-	for (size_t i = 0; i < shapeCollection.size(); i++)
-	{
-		std::cout << "Figure " << i << ": " << shapeCollection.getIsPointInFigureByIndex(i, 3, 3) << std::endl;
+		bool result = coll.addShape(shapeType);
+
+		if (result)
+		{
+			#ifdef _WIN32
+                		system("cls");
+            		#else
+                		system("clear");
+            		#endif
+
+			std::cout << "Current number of shapes in the collection: " << coll.size() << std::endl;
+
+			std::cout << "Their areas:" << std::endl;
+			for (size_t i = 0; i < coll.size(); i++)
+			{
+				std::cout << coll.getAreaOfFigureByIndex(i) << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "Invalid shape type!" << std::endl;
+		}
 	}
 }
