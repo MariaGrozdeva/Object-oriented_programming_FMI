@@ -4,7 +4,7 @@ namespace {
 	const double pi = 3.1415;
 }
 
-Circle::Circle(int x, int y, double radius) : Shape(1)
+Circle::Circle(int x, int y, double radius) : Shape(1, getCircleType())
 {
 	this->radius = radius;
 	setPoint(0, x, y);
