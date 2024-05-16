@@ -10,4 +10,9 @@ public:
 	virtual bool isPointInFigure(int x, int y) const override;
 
 	virtual Shape* clone() const override;
+	
+	constexpr static int getTriangleType()
+	{
+		return 2;
+	}
 };
