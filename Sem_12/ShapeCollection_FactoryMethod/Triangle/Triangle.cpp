@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3) : Shape(3)
+Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3) : Shape(3, getTriangleType())
 {
 	setPoint(0, x1, y1);
 	setPoint(1, x2, y2);
