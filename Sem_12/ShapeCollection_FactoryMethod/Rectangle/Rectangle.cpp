@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle(int x1, int y1, int x3, int y3) : Shape(4)
+Rectangle::Rectangle(int x1, int y1, int x3, int y3) : Shape(4, getRectangleType())
 {
 	setPoint(0, x1, y1);
 	setPoint(1, x3, y1);
