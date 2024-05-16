@@ -32,10 +32,16 @@ const Shape::Point& Shape::getPointAtIndex(unsigned index) const
 	return points[index];
 }
 
-Shape::Shape(size_t pointsCount)
+int Shape::getShapeType() const
+{
+    	return shapeType;
+}
+
+Shape::Shape(size_t pointsCount, int shapeType)
 {
 	this->pointsCount = pointsCount;
 	points = new Point[pointsCount];
+	this->shapeType = shapeType;
 }
 
 Shape::Shape(const Shape& other)
@@ -65,6 +71,7 @@ void Shape::copyFrom(const Shape& other)
 	{
 		points[i] = other.points[i];
 	}
+	shapeType = other.shapeType;
 }
 void Shape::free()
 {
