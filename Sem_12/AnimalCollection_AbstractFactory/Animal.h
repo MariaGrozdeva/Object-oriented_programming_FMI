@@ -13,9 +13,9 @@ public:
 class AnimalCreator
 {
 public:
-    	AnimalCreator(const char* animalName);
+    	AnimalCreator(const std::string& animalName);
     	virtual ~AnimalCreator() = default;
-    	const char* getAnimalName() const;
+    	const std::string& getAnimalName() const;
 
     	virtual Animal* createAnimal(std::istream& is) const = 0;
 
