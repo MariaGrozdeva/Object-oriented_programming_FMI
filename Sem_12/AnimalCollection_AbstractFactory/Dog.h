@@ -5,7 +5,7 @@
 class Dog : public Animal
 {
 public:
-    Dog(const std::string& breed);
+    	Dog(const std::string& breed);
 	virtual void sayHello() const override;
 	virtual Animal* clone() const override;
 	
