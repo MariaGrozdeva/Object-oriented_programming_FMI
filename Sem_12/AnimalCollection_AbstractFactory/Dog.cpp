@@ -26,9 +26,9 @@ DogCreator::DogCreator() : AnimalCreator("dog")
 
 Animal* DogCreator::createAnimal(std::istream& is) const
 {
-    std::string breed;
-    is >> breed;
-    return new Dog(breed);
+    	std::string breed;
+    	is >> breed;
+    	return new Dog(breed);
 }
 
 static DogCreator __;
