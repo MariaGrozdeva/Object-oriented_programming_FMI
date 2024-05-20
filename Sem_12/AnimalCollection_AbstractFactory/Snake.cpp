@@ -15,11 +15,11 @@ Animal* Snake::clone() const
 
 size_t Snake::getSnakeLength() const
 {
-    return length;
+    	return length;
 }
 bool Snake::getIsVenomous() const
 {
-    return isVenomous;
+    	return isVenomous;
 }
 
 SnakeCreator::SnakeCreator() : AnimalCreator("snake")
@@ -27,10 +27,10 @@ SnakeCreator::SnakeCreator() : AnimalCreator("snake")
 
 Animal* SnakeCreator::createAnimal(std::istream& is) const
 {
-    size_t length;
-    bool isVenomous;
-    is >> length >> isVenomous;
-    return new Snake(length, isVenomous);
+    	size_t length;
+    	bool isVenomous;
+    	is >> length >> isVenomous;
+    	return new Snake(length, isVenomous);
 }
 
 static SnakeCreator __;
