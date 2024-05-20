@@ -3,10 +3,10 @@
 
 AnimalCreator::AnimalCreator(const char* animalName) : animalName(animalName)
 {
-    AnimalFactory::getFactory().registerAnimalCreator(this);
+        AnimalFactory::getFactory().registerAnimalCreator(this);
 }
 
 const char* AnimalCreator::getAnimalName() const
 {
-    return animalName.c_str();
+        return animalName.c_str();
 }
