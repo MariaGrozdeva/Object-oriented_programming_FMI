@@ -16,9 +16,9 @@ Animal* Dog::clone() const
 	return new Dog(*this);
 }
 
-const char* Dog::getBreed() const
+const std::string& Dog::getBreed() const
 {
-    return breed.c_str();
+    	return breed;
 }
 
 DogCreator::DogCreator() : AnimalCreator("dog")
