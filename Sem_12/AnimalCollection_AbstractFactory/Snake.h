@@ -12,13 +12,13 @@ public:
 	bool getIsVenomous() const;
 	
 private:
-    size_t length;
-    bool isVenomous;
+    	size_t length;
+    	bool isVenomous;
 };
 
 class SnakeCreator : public AnimalCreator
 {
 public :
-    SnakeCreator();
-    virtual Animal* createAnimal(std::istream& is) const override;
+    	SnakeCreator();
+    	virtual Animal* createAnimal(std::istream& is) const override;
 };
