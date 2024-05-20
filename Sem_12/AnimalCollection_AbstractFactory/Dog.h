@@ -9,7 +9,7 @@ public:
 	virtual void sayHello() const override;
 	virtual Animal* clone() const override;
 	
-	const char* getBreed() const;
+	const std::string& getBreed() const;
 	
 private:
     	std::string breed;
