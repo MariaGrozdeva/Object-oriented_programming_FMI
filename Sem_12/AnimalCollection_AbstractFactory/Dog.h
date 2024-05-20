@@ -12,12 +12,12 @@ public:
 	const char* getBreed() const;
 	
 private:
-    std::string breed;
+    	std::string breed;
 };
 
 class DogCreator : public AnimalCreator
 {
 public :
-    DogCreator();
-    virtual Animal* createAnimal(std::istream& is) const override;
+    	DogCreator();
+    	virtual Animal* createAnimal(std::istream& is) const override;
 };
