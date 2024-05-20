@@ -3,7 +3,7 @@
 
 Dog::Dog(const std::string& breed)
 {
-    this->breed = breed;
+    	this->breed = breed;
 }
 
 void Dog::sayHello() const 
