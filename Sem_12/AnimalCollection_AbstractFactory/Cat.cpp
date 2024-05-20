@@ -15,7 +15,7 @@ CatCreator::CatCreator() : AnimalCreator("cat")
 
 Animal* CatCreator::createAnimal(std::istream& is) const
 {
-    return new Cat();
+    	return new Cat();
 }
 
 static CatCreator __;
