@@ -11,6 +11,6 @@ public:
 class CatCreator : public AnimalCreator
 {
 public :
-    CatCreator();
-    virtual Animal* createAnimal(std::istream& is) const override;
+    	CatCreator();
+    	virtual Animal* createAnimal(std::istream& is) const override;
 };
