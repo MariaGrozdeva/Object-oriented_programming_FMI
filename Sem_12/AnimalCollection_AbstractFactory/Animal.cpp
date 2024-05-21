@@ -6,7 +6,7 @@ AnimalCreator::AnimalCreator(const std::string& animalName) : animalName(animalN
         AnimalFactory::getFactory().registerAnimalCreator(this);
 }
 
-const char* AnimalCreator::getAnimalName() const
+const std::string& AnimalCreator::getAnimalName() const
 {
         return animalName;
 }
