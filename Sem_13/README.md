@@ -106,5 +106,3 @@ struct D : B, C
 ```c++
 D::D(...) : B(...), C(...), A(...) {} // We call the constructor of A explicitly.
 ```
-
-[Bjarne Stroustrup – Multiple Inheritance for C++](https://www.usenix.org/legacy/publications/compsystems/1989/fall_stroustrup.pdf)
