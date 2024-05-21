@@ -21,7 +21,7 @@ public:
 
         Animal* createAnimal(std::istream& is)
         {
-                char name[32];
+                std::string name;
                 is >> name;
 
                 const AnimalCreator* creator = getCreator(name);
@@ -41,7 +41,7 @@ private:
         const AnimalCreator* creators[MAX_CREATORS_COUNT];
         size_t count;
     
-        const AnimalCreator* getCreator(const char* str) const
+        const AnimalCreator* getCreator(const std::string& str) const
         {
                 for (size_t i = 0; i < count; i++)
                 {
