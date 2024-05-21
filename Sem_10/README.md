@@ -41,7 +41,7 @@ public:
 
 След като Student е наследник на Person, то при създаване на обект от тип Student се създава обект от тип Person, **който е част от обекта** от тип Student.
 
-![al_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_10/images/PersonStudent.png)
+![alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_10/images/PersonStudent.png)
 
 ## Видове наследяване
 
