@@ -5,7 +5,7 @@ class Snake : public Animal
 {
 public:
     	Snake(size_t length, bool isVenomous );
-	virtual void sayHello() const overide;
+	virtual void sayHello() const override;
 	virtual Animal* clone() const override;
 	
 	size_t getSnakeLength() const;
