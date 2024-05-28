@@ -1,0 +1,71 @@
+# Шаблони (templates)
+
+**Какво е шаблон?**  
+Функция или клас, която/който работи не с променливи от конкретно дефиниран тип, а с абстрактни променливи, се нарича шаблонна функция/клас.  
+
+**Пример:**
+```c++
+template <typename T>
+const T& myMax(const T& lhs, const T& rhs)
+{
+	return lhs < rhs ? rhs : lhs;
+}
+
+int main()
+{
+	std::cout << myMax<int>(24, 22);
+}
+```
+
+Компилаторът генерира т. нар. шаблонна функция, като замества параметрите на шаблона с типовете на съответните фактически параметри.  
+
+:bangbang: Не можем да разделяме шаблонни класове в .h и .cpp файлове. **Трябва да пишем декларацията и дефиницията им в един файл** – например .hpp файл. Причината е следната:  
+
+Да си представим, че имаме следната структура:
+```c++
+template <typename T>
+struct Foo
+{
+    T bar;
+    void doSomething(const T& param);
+};
+```
+Създаваме инстанция от тази структура:
+```c++
+int main()
+{
+	Foo<int> f;
+}
+```
+След като "прочете" този ред, компилаторът ще създаде следния клас:
+```c++
+struct Foo
+{
+    int bar;
+    void doSomething(const int& param);
+};
+```
+Съответният .cpp файл "не разбира" за създаването на този хедър и кодът не се компилира.  
+
+Ако предварително знаем с какви конкретни типове ще бъде инстанциран шаблонният клас, то можем да заобиколим този проблем като накрая на .cpp файла добавим:
+```c++
+template struct Foo<int>;
+template struct Foo<double>;
+// ...
+```
+
+## Специализация на шаблони
+```c++
+template <typename T>
+void sort(T* arr, size_t size)
+{
+    // code to implement Quick Sort
+}
+ 
+ // specialized for char data type
+template <>
+void sort<char>(char* arr, size_t size)
+{
+    // code to implement Count Sort
+}
+```
