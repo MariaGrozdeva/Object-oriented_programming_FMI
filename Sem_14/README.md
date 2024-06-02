@@ -83,4 +83,8 @@ void sort<char>(char* arr, size_t size)
   ❗❗Не трябва в тялото на функцията да се отваря и чете от файл. Четенето трябва да се случи веднъж, а не при всяко извикване на функцията.
 
 ## Задача 2:
-[!alt_text](https://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_14/SetsTask.pdf)
+<object data="http://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_14/SetsTask.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="http://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_14/SetsTask.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://github.com/MariaGrozdeva/Object-oriented_programming_FMI/blob/main/Sem_14/SetsTask.pdf">Download SetsTask.pdf</a>.</p>
+    </embed>
+</object>
