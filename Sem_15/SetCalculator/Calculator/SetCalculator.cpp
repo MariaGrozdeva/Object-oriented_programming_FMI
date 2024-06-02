@@ -13,7 +13,9 @@ bool SetCalculator::isElementIn(const SetExpression::Element& el) const
 SetExpression* SetCalculator::parse(const std::string& str)
 {
 	if (str.size() == 1)
+	{
 		return new Singleton(str[0]);
+	}
 
 	// should be an operation
 	std::string withoutBrackets = str.substr(1, str.size() - 2);
@@ -22,15 +24,23 @@ SetExpression* SetCalculator::parse(const std::string& str)
 	for (size_t i = 0; i < withoutBrackets.size(); i++)
 	{
 		if (withoutBrackets[i] == '(')
+		{
 			count++;
+		}
 		else if (withoutBrackets[i] == ')')
+		{
 			count--;
+		}
 		else if (count == 0 && isOperation(withoutBrackets[i]))
 		{
 			if (withoutBrackets[i] == '!')
+			{
 				return new UnaryOperation('!', parse(withoutBrackets.substr(i + 1)));
+			}
 			else
+			{
 				return new BinaryOperation(withoutBrackets[i], parse(withoutBrackets.substr(0, i)), parse(withoutBrackets.substr(i + 1)));
+			}
 		}
 	}
 }
