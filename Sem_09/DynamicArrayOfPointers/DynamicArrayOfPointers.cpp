@@ -39,34 +39,41 @@ int DynamicArrayOfPointers::getFirstFreeIndex() const
 
 void DynamicArrayOfPointers::removeAt(unsigned index)
 {
-	if (index >= count)
+	if (index >= capacity)
     	{
         	throw std::out_of_range("Invalid index!");
     	}
 
-	delete data[index];
-	data[index] = nullptr;
-	count--;
+	if (data[index])
+	{
+		delete data[index];
+		data[index] = nullptr;
+		count--;
+	}
 
 	// shrink if count is much smaller than capacity
 }
 
 void DynamicArrayOfPointers::popBack()
 {
-	if (size() == 0)
+	if (count == 0)
 	{
 		return;
 	}
 
-	delete data[count - 1];
-	count--;
+	if (data[count - 1])
+	{
+		delete data[count - 1];
+		data[count - 1] = nullptr:
+		count--;
+	}
 	
 	// shrink if count is much smaller than capacity
 }
 
 bool DynamicArrayOfPointers::contains(unsigned index) const
 {
-	return index <= count && data[index];
+	return index < capacity && data[index];
 }
 
 void DynamicArrayOfPointers::setAtIndex(const A& obj, unsigned index)
@@ -103,18 +110,18 @@ void DynamicArrayOfPointers::setAtIndex(A&& obj, unsigned index)
 
 const A& DynamicArrayOfPointers::operator[](unsigned index) const
 {
-    	if (index >= count || !data[index])
+    	if (index >= capacity || !data[index])
     	{
-        	throw std::out_of_range("Invalid index!");
+        	throw std::out_of_range("Invalid index");
     	}
 	return *data[index];
 }
 
 A& DynamicArrayOfPointers::operator[](unsigned index)
 {
-	if (index >= count || !data[index])
+	if (index >= capacity || !data[index])
     	{
-        	throw std::out_of_range("Invalid index!");
+        	throw std::out_of_range("Invalid index");
     	}
 	return *data[index];
 }
@@ -172,7 +179,7 @@ void DynamicArrayOfPointers::copyFrom(const DynamicArrayOfPointers& other)
 	capacity = other.capacity;
 	
 	data = new A*[capacity]{ nullptr };
-	for (size_t i = 0; i < count; i++)
+	for (size_t i = 0; i < capacity; i++)
 	{
 		if (other.data[i])
 		{
@@ -192,7 +199,7 @@ void DynamicArrayOfPointers::moveFrom(DynamicArrayOfPointers&& other)
 
 void DynamicArrayOfPointers::free()
 {
-	for (size_t i = 0; i < count; i++)
+	for (size_t i = 0; i < capacity; i++)
 	{
 		delete data[i];
 	}
