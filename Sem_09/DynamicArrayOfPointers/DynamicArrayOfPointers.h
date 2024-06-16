@@ -25,7 +25,6 @@ public:
 	void addAtFirstFreeIndex(A&& el);
 	
 	void removeAt(unsigned index);
-	void popBack();
 
 	bool contains(unsigned index) const;
 
