@@ -64,7 +64,7 @@ void DynamicArrayOfPointers::popBack()
 	if (data[count - 1])
 	{
 		delete data[count - 1];
-		data[count - 1] = nullptr:
+		data[count - 1] = nullptr;
 		count--;
 	}
 	
