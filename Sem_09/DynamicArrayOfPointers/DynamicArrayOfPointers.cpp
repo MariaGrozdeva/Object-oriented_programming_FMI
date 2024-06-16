@@ -54,23 +54,6 @@ void DynamicArrayOfPointers::removeAt(unsigned index)
 	// shrink if count is much smaller than capacity
 }
 
-void DynamicArrayOfPointers::popBack()
-{
-	if (count == 0)
-	{
-		return;
-	}
-
-	if (data[count - 1])
-	{
-		delete data[count - 1];
-		data[count - 1] = nullptr;
-		count--;
-	}
-	
-	// shrink if count is much smaller than capacity
-}
-
 bool DynamicArrayOfPointers::contains(unsigned index) const
 {
 	return index < capacity && data[index];
