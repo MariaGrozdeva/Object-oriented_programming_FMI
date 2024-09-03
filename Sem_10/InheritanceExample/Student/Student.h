@@ -1,14 +1,24 @@
 #pragma once
 #include "Person.h"
+#include "Gradebook.h"
 
 class Student : public Person
 {
-private:
-	unsigned int fn;
-
 public:
-	Student(const char* name, unsigned int age, unsigned int fn);
+	Student() = default;
+	Student(const char* name, unsigned age, const char* fn, const Gradebook& gradeBook);
 
-	void setFn(unsigned int fn);
-	unsigned int getFn() const;
+	void addGrade(unsigned newGrade);
+	void removeGradeAt(unsigned index);
+	void removeGrade();
+
+	const Gradebook& getGrades() const;
+	void print() const;
+
+private:
+	static constexpr unsigned facultyNumberLen = 10;
+
+	char fn[facultyNumberLen];
+	Gradebook gradeBook;	
 };
+
