@@ -1,14 +1,17 @@
 #pragma once
 #include "Person.h"
-
 class Student : public Person
 {
-private:
-	unsigned int fn;
-
 public:
-	Student(const char* name, unsigned int age, unsigned int fn);
+	Student(const char* name, unsigned age, unsigned fn);
 
-	void setFn(unsigned int fn);
-	unsigned int getFn() const;
+	void setFacNumber(unsigned fn);
+	unsigned getFacNumber() const;
+
+	void print() const;
+private:
+	unsigned fn;
+
+	bool isValidFn(unsigned fn);// faculty number is valid if its length is 5
 };
+
