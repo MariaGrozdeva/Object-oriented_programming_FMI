@@ -1,15 +1,13 @@
 #include "Student.h"
+#include <iostream>
 
-Student::Student(const char* name, unsigned int age, unsigned int fn) : Person(name, age)
-{
-	setFn(fn);
-}
+Student::Student() : fn(0)
+{}
 
-void Student::setFn(unsigned int fn)
-{
-	this->fn = fn;
-}
-unsigned int Student::getFn() const
+Student::Student(const char* name, unsigned age, unsigned fn) : Person(name, age), fn(fn)
+{}
+
+unsigned Student::getFn() const
 {
 	return fn;
 }
