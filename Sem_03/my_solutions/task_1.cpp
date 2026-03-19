@@ -1,5 +1,7 @@
 #include <fstream>
 #include <iostream>
+#include <new>
+#include <cstddef>
 using std::cout;
 using std::cin;
 using std::endl;
