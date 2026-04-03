@@ -91,11 +91,9 @@ bool FlightsScanner::readAndExportData(std::ifstream& ifs) const
     unsigned int lineIndex = 1;
     bool errorOccurred = false;
 
-    while (!ifs.eof())
+    char line[1024];
+    while (ifs.getline(line, 1024))
     {
-        char line[1024];
-        ifs.getline(line, 1024);
-
         if (strlen(line) == 0)
         {
             lineIndex++;
