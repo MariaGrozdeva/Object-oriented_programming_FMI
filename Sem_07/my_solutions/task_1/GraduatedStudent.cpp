@@ -4,6 +4,9 @@
 #include <new>
 #include <stdexcept>
 
+unsigned GraduatedStudent::graduatedStudentsCount = 0;
+double GraduatedStudent::averageGradeSumAllGraduates = 0;
+
 GraduatedStudent::GraduatedStudent(
     const char *name,
     const unsigned *grades,
