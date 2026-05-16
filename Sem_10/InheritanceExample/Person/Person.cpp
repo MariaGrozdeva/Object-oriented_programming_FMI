@@ -39,6 +39,25 @@ Person& Person::operator=(const Person& other)
     return *this;
 }
 
+Person::Person(Person&& other) noexcept
+{
+        name = other.name;
+        age = other.age;
+        other.name = nullptr;
+}
+
+Person& Person::operator=(Person&& other) noexcept
+{
+        if (this != &other)
+        {
+                delete[] name;
+                name = other.name;
+                age = other.age;
+                other.name = nullptr;
+        }
+        return *this;
+}
+
 Person::~Person()
 {
 	delete[] name;
