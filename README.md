@@ -10,4 +10,5 @@
 - **Тема 8** : Предефиниране на оператори (Operator overloading). Приятелски класове и функции.  
 - **Тема 9** : Value categories – glvalue, prvalue, xvalue, lvalue, rvalue. Lvalue, rvalue и universal references; std::move и std::forward. Move семантики. Масиви от указатели към обекти.  
 - **Тема 10** : Наследяване (Is-a relationship).  
+- **Тема 11** : Статично и динамично свързване. Виртуални функции. Ключови думи – override и final. Полиморфизъм. Чисто виртуални функции и абстрактни класове.  
 - **Тема 14** : Параметричен полиморфизъм (шаблони).  
