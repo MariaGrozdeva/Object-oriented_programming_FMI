@@ -1,0 +1,6 @@
+5
+email alice@example.com Welcome
+sms +359888123456 Hello
+push device-token-abc NewMessage
+fax unknown ignored
+email bob@example.com Reminder
